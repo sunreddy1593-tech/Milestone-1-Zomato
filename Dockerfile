@@ -16,5 +16,6 @@ COPY data/ ./data/
 
 EXPOSE 8000
 
-# Configuration is provided at runtime via --env-file .env
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--app-dir", "src"]
+# Configuration is provided at runtime via platform environment variables.
+# Shell form so ${PORT} (injected by Railway/host) expands; falls back to 8000.
+CMD ["sh", "-c", "uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000} --app-dir src"]

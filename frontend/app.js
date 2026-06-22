@@ -1,6 +1,8 @@
 /* GourmetAI frontend logic — talks to the FastAPI backend. */
 
-const API_BASE = location.protocol === "file:" ? "http://localhost:8000" : "";
+const API_BASE =
+  (typeof window !== "undefined" && window.__API_BASE__) ||
+  (location.protocol === "file:" ? "http://localhost:8000" : "");
 
 const state = {
   cuisines: [], // selected cuisine names
