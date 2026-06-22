@@ -162,15 +162,28 @@ The frontend has **no build step** — it's plain HTML/CSS/JS. Vercel serves the
 4. **Build Command:** leave empty. **Output Directory:** leave empty (`.`).
 5. **Install Command:** leave empty.
 
-### 3.2 (Optional) `frontend/vercel.json`
-Static serving works without config. If you want cleaner URLs, add:
+### 3.2 `frontend/vercel.json` (committed)
+Vercel may otherwise auto-detect a framework and fail the build with
+`No Next.js version detected...` because this app is plain static
+HTML/CSS/JS with no `package.json`. The committed `frontend/vercel.json`
+disables framework detection and the build step, serving the directory as
+static files:
 
 ```json
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "buildCommand": null,
+  "installCommand": null,
+  "outputDirectory": ".",
   "cleanUrls": true,
   "trailingSlash": false
 }
 ```
+
+> Also ensure the project's **Framework Preset** is `Other` and **Root
+> Directory** is `frontend` in the Vercel dashboard. `vercel.json` is read from
+> the Root Directory, so it must sit next to `index.html`.
 
 ### 3.3 Deploy
 Click **Deploy**. Vercel gives a URL like `https://milestone-1-zomato.vercel.app`.
@@ -271,6 +284,7 @@ Vercel also creates a unique **Preview URL** for each PR.
 | Frontend loads but no results; console shows requests to the Vercel domain | `__API_BASE__` not set / wrong | Set the Railway URL in `frontend/config.js`, push |
 | `CORS policy` error in console | Origins locked down without Vercel domain | Keep `["*"]` or add the Vercel origin to `ALLOWED_ORIGINS` |
 | Vercel shows a directory listing / 404 | Wrong **Root Directory** | Set Root Directory to `frontend` |
+| Vercel build fails: `No Next.js version detected` | Framework auto-detected; no `package.json` | Commit `frontend/vercel.json` (`"framework": null`) and set Framework Preset to `Other` |
 | 503 `service_unavailable` from API | Dataset missing from image | Ensure `data/restaurants.json` is committed and `COPY data/` is in the Dockerfile |
 | Slow Railway builds | Heavy `pandas`/`datasets` install | Split requirements per [section 5](#5-optional-faster-smaller-railway-builds) |
 
