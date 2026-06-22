@@ -1,0 +1,264 @@
+/* GourmetAI frontend — Culinary Intelligence design system
+   (extracted from the Stitch design: colors, fonts, glass, AI accents). */
+
+:root {
+  --surface: #f9f9f7;
+  --surface-dim: #dadad8;
+  --surface-container-lowest: #ffffff;
+  --surface-container-low: #f4f4f2;
+  --surface-container: #eeeeec;
+  --surface-container-high: #e8e8e6;
+  --surface-container-highest: #e2e3e1;
+  --on-surface: #1a1c1b;
+  --on-surface-variant: #5b403f;
+  --outline: #8f6f6e;
+  --outline-variant: #e4bebc;
+  --surface-tint: #bb162c;
+  --primary: #b7122a;
+  --on-primary: #ffffff;
+  --primary-container: #db313f;
+  --primary-fixed: #ffdad8;
+  --primary-fixed-dim: #ffb3b1;
+  --secondary: #5f5e5e;
+  --secondary-container: #e2dfde;
+  --on-secondary-container: #636262;
+  --error: #ba1a1a;
+  --background: #f9f9f7;
+  --ai-accent: #8b5cf6;
+  --veg: #2e7d32;
+  --nonveg: #c62828;
+}
+
+body {
+  background: var(--background);
+  color: var(--on-surface);
+  font-family: "Work Sans", system-ui, sans-serif;
+}
+
+.font-head {
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+}
+
+/* Warm radial hero glow */
+.hero-glow {
+  background: radial-gradient(
+    circle at 50% 0%,
+    rgba(255, 218, 216, 0.45) 0%,
+    rgba(249, 249, 247, 0) 60%
+  );
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+}
+
+.ai-border {
+  border: 1.5px solid var(--primary-fixed-dim);
+}
+
+.ai-gradient-bg {
+  background: linear-gradient(
+    135deg,
+    rgba(226, 55, 68, 0.06) 0%,
+    rgba(139, 92, 246, 0.06) 100%
+  );
+}
+
+.ai-gradient-text {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--ai-accent) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.card-hover {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.09);
+}
+
+.pulse-subtle {
+  animation: pulse-soft 3s infinite;
+}
+@keyframes pulse-soft {
+  0% {
+    box-shadow: 0 0 0 0 rgba(183, 18, 42, 0.12);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(183, 18, 42, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(183, 18, 42, 0);
+  }
+}
+
+/* Skeleton shimmer for the loading state */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--surface-container) 25%,
+    var(--surface-container-high) 37%,
+    var(--surface-container) 63%
+  );
+  background-size: 400% 100%;
+  animation: shimmer 1.4s ease infinite;
+}
+@keyframes shimmer {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+/* Range slider accent */
+input[type="range"] {
+  accent-color: var(--primary);
+}
+
+/* Match-score ring rotation base */
+.ring-svg {
+  transform: rotate(-90deg);
+}
+
+.hidden-soft {
+  display: none !important;
+}
+
+/* Modal */
+.modal-backdrop {
+  background: rgba(26, 28, 27, 0.45);
+  backdrop-filter: blur(4px);
+}
+
+/* Example query chips */
+.example-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--surface-container-low);
+  color: var(--on-surface-variant);
+  font-weight: 600;
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--outline-variant);
+  transition: background 0.15s ease;
+}
+.example-chip:hover {
+  background: var(--surface-container-high);
+}
+
+/* Toggle cards */
+.toggle-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  background: var(--surface-container-low);
+  border: 1px solid var(--outline-variant);
+  border-radius: 0.75rem;
+  padding: 0.65rem 0.75rem;
+  cursor: pointer;
+}
+.toggle-track {
+  position: relative;
+  flex-shrink: 0;
+  width: 2.75rem;
+  height: 1.5rem;
+  background: var(--surface-dim);
+  border-radius: 999px;
+  transition: background 0.2s ease;
+}
+.toggle-track::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 1.25rem;
+  height: 1.25rem;
+  background: #fff;
+  border-radius: 999px;
+  transition: transform 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+.toggle-card input:checked + .toggle-track {
+  background: var(--primary);
+}
+.toggle-card input:checked + .toggle-track::after {
+  transform: translateX(1.25rem);
+}
+.toggle-card input:focus-visible + .toggle-track {
+  outline: 2px solid var(--primary-fixed-dim);
+  outline-offset: 2px;
+}
+
+/* Price range buttons */
+.price-btn {
+  color: var(--secondary);
+}
+.price-btn:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+.price-btn.active {
+  background: #fff;
+  color: var(--primary);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Removable cuisine chip */
+.cuisine-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: var(--primary);
+  color: var(--on-primary);
+  font-weight: 600;
+  font-size: 0.8rem;
+  padding: 0.35rem 0.5rem 0.35rem 0.75rem;
+  border-radius: 0.5rem;
+}
+.cuisine-chip button {
+  display: inline-flex;
+  line-height: 0;
+}
+
+/* Intent pills */
+.hard-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: var(--surface);
+  border: 1px solid var(--outline-variant);
+  border-radius: 0.5rem;
+  padding: 0.35rem 0.75rem;
+  font-weight: 600;
+  font-size: 0.8rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+.soft-pill {
+  display: inline-flex;
+  align-items: center;
+  background: var(--secondary-container);
+  color: var(--on-secondary-container);
+  border-radius: 0.5rem;
+  padding: 0.35rem 0.75rem;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+/* Nice scrollbars in the cuisine dropdown */
+.scroll-thin::-webkit-scrollbar {
+  width: 8px;
+}
+.scroll-thin::-webkit-scrollbar-thumb {
+  background: var(--surface-container-highest);
+  border-radius: 999px;
+}

@@ -1,0 +1,65 @@
+[
+  {
+    "restaurant_id": "R001",
+    "name": "Green Garden Cafe",
+    "city": "Bengaluru",
+    "locality": "Indiranagar",
+    "cuisines": ["North Indian", "Continental"],
+    "average_cost_for_two": 1200,
+    "price_range": 2,
+    "rating": 4.5,
+    "votes": 842,
+    "is_veg": "Veg",
+    "has_table_booking": true,
+    "has_online_delivery": true,
+    "ambiance_tags": ["cozy", "romantic", "good for groups"],
+    "opening_hours": {
+      "monday": { "open": "11:00", "close": "23:00" },
+      "friday": { "open": "18:00", "close": "02:00" }
+    },
+    "latitude": 12.9784,
+    "longitude": 77.6408,
+    "popular_dishes": ["Paneer Tikka", "Wood-fired Pizza"],
+    "description": "A cozy vegetarian spot with dim lighting, ideal for date nights."
+  },
+  {
+    "restaurant_id": "R002",
+    "name": "Spice Route",
+    "city": "Bengaluru",
+    "locality": "Koramangala",
+    "cuisines": ["Chinese", "Thai"],
+    "average_cost_for_two": 800,
+    "price_range": 2,
+    "rating": 4.2,
+    "votes": 512,
+    "is_veg": "Both",
+    "has_table_booking": false,
+    "has_online_delivery": true,
+    "ambiance_tags": ["casual", "family-friendly"],
+    "opening_hours": {
+      "monday": { "open": "12:00", "close": "22:30" }
+    },
+    "popular_dishes": ["Dim Sum", "Pad Thai"],
+    "description": "Casual Asian dining with delivery across Koramangala."
+  },
+  {
+    "restaurant_id": "R003",
+    "name": "The Grill House",
+    "city": "Bengaluru",
+    "locality": "MG Road",
+    "cuisines": ["BBQ", "Steak"],
+    "average_cost_for_two": 2500,
+    "price_range": 4,
+    "rating": 4.7,
+    "votes": 1203,
+    "is_veg": "Non-Veg",
+    "has_table_booking": true,
+    "has_online_delivery": false,
+    "ambiance_tags": ["rooftop", "romantic", "fine dining"],
+    "opening_hours": {
+      "monday": { "open": "19:00", "close": "23:30" }
+    },
+    "popular_dishes": ["Ribeye Steak", "Grilled Lamb"],
+    "description": "Upscale rooftop grill on MG Road."
+  }
+]

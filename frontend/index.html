@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>GourmetAI — AI Restaurant Recommendations</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Work+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              surface: "#f9f9f7",
+              "surface-dim": "#dadad8",
+              "surface-container-lowest": "#ffffff",
+              "surface-container-low": "#f4f4f2",
+              "surface-container": "#eeeeec",
+              "surface-container-high": "#e8e8e6",
+              "surface-container-highest": "#e2e3e1",
+              "on-surface": "#1a1c1b",
+              "on-surface-variant": "#5b403f",
+              outline: "#8f6f6e",
+              "outline-variant": "#e4bebc",
+              "surface-tint": "#bb162c",
+              primary: "#b7122a",
+              "on-primary": "#ffffff",
+              "primary-container": "#db313f",
+              "primary-fixed": "#ffdad8",
+              "primary-fixed-dim": "#ffb3b1",
+              secondary: "#5f5e5e",
+              "secondary-container": "#e2dfde",
+              "on-secondary-container": "#636262",
+              error: "#ba1a1a",
+              background: "#f9f9f7",
+              "ai-accent": "#8b5cf6",
+            },
+            fontFamily: {
+              head: ["Plus Jakarta Sans", "sans-serif"],
+              body: ["Work Sans", "sans-serif"],
+            },
+            borderRadius: { xl: "0.75rem", "2xl": "1.5rem" },
+            maxWidth: { container: "1280px" },
+          },
+        },
+      };
+    </script>
+    <link href="styles.css" rel="stylesheet" />
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
+    </style>
+  </head>
+  <body class="font-body min-h-screen flex flex-col relative overflow-x-hidden">
+    <div class="absolute inset-0 z-0 pointer-events-none hero-glow"></div>
+
+    <!-- Header -->
+    <header class="relative z-40 bg-surface/80 backdrop-blur-sm border-b border-outline-variant/60 sticky top-0">
+      <div class="flex justify-between items-center w-full px-6 md:px-12 h-16 max-w-container mx-auto">
+        <a
+          href="#"
+          id="brand-link"
+          class="font-head text-2xl font-extrabold text-primary tracking-tight"
+          >GourmetAI</a
+        >
+        <!-- Compact search (results view only) -->
+        <div
+          id="compact-search"
+          class="hidden-soft flex-1 max-w-2xl mx-6 md:flex items-center bg-surface-container-low rounded-full px-4 py-2 border border-outline-variant focus-within:border-primary transition-colors"
+        >
+          <span class="material-symbols-outlined text-secondary mr-2">search</span>
+          <input
+            id="compact-query"
+            class="bg-transparent border-none outline-none w-full text-on-surface placeholder-secondary focus:ring-0"
+            placeholder="Ask AI for restaurant matches..."
+            type="text"
+          />
+        </div>
+        <div class="flex items-center gap-3">
+          <span id="header-city" class="text-secondary font-semibold text-sm hidden sm:block"></span>
+          <button
+            id="edit-filters-btn"
+            class="hidden-soft items-center gap-1 text-secondary hover:text-primary transition-colors font-semibold text-sm"
+          >
+            <span class="material-symbols-outlined text-[20px]">tune</span>
+            <span class="hidden md:inline">Filters</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main
+      class="flex-grow relative z-10 w-full max-w-container mx-auto px-4 md:px-6 py-8"
+    >
+      <!-- ================= SEARCH VIEW ================= -->
+      <section id="search-view">
+        <div class="text-center mt-6 mb-6 max-w-3xl mx-auto">
+          <h1 class="font-head text-4xl md:text-5xl font-extrabold tracking-tight mb-3">
+            Tell us what you're craving
+          </h1>
+          <p class="text-lg text-secondary">
+            Describe your perfect meal — we'll find and explain the best spots.
+          </p>
+        </div>
+
+        <!-- Search bar -->
+        <div class="max-w-3xl mx-auto mb-4">
+          <div
+            class="glass-panel rounded-2xl p-2 flex flex-col sm:flex-row items-center gap-2 transition-all duration-300 focus-within:border-primary-fixed-dim"
+          >
+            <div class="flex-grow flex items-center w-full px-4 py-2">
+              <span class="material-symbols-outlined text-primary mr-3 text-[28px] pulse-subtle rounded-full"
+                >auto_awesome</span
+              >
+              <input
+                id="main-query"
+                class="w-full bg-transparent border-none focus:ring-0 text-lg text-on-surface placeholder-secondary outline-none"
+                placeholder="e.g., 'Cozy vegetarian place for a date in Indiranagar'"
+                type="text"
+              />
+            </div>
+            <button
+              id="main-search-btn"
+              class="w-full sm:w-auto bg-primary text-on-primary font-semibold px-8 py-4 rounded-xl hover:bg-surface-tint transition-colors shadow-md flex-shrink-0 whitespace-nowrap"
+            >
+              Find restaurants
+            </button>
+          </div>
+          <!-- Example chips -->
+          <div class="flex flex-wrap justify-center gap-3 mt-3" id="example-chips">
+            <button class="example-chip" data-q="Cheap vegetarian street food near MG Road, open right now.">
+              <span class="material-symbols-outlined text-[16px]">restaurant</span>Cheap vegetarian street food
+            </button>
+            <button class="example-chip" data-q="Romantic rooftop restaurant for an anniversary dinner, budget no concern.">
+              <span class="material-symbols-outlined text-[16px]">nightlight</span>Romantic rooftop dinner
+            </button>
+            <button class="example-chip" data-q="A quiet cafe good for working with a laptop and good coffee.">
+              <span class="material-symbols-outlined text-[16px]">laptop_mac</span>Quiet cafe for work
+            </button>
+            <button class="example-chip" data-q="Best-rated Chinese delivery under Rs.800 for two.">
+              <span class="material-symbols-outlined text-[16px]">delivery_dining</span>Best Chinese delivery
+            </button>
+          </div>
+        </div>
+
+        <!-- Advanced filters -->
+        <section class="max-w-5xl mx-auto mt-8">
+          <div class="flex items-center justify-between mb-4 px-2">
+            <h2 class="font-head text-2xl font-bold flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary">tune</span> Advanced Filters
+            </h2>
+            <button id="reset-filters" class="text-secondary hover:text-primary font-semibold text-sm transition-colors">
+              Reset All
+            </button>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+            <!-- Location + cuisines -->
+            <div class="md:col-span-8 glass-panel rounded-2xl p-4 flex flex-col gap-4">
+              <div class="flex flex-col sm:flex-row gap-6">
+                <!-- City dropdown -->
+                <div class="flex-1">
+                  <label class="font-semibold text-sm text-secondary block mb-2">City</label>
+                  <div class="relative">
+                    <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-secondary text-[20px]">location_city</span>
+                    <select id="filter-city" class="w-full bg-surface-container-low border-2 border-transparent focus:border-primary rounded-xl py-3 pl-10 pr-8 text-on-surface outline-none transition-colors appearance-none"></select>
+                  </div>
+                </div>
+                <!-- Locality dropdown -->
+                <div class="flex-1">
+                  <label class="font-semibold text-sm text-secondary block mb-2">Locality</label>
+                  <div class="relative">
+                    <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-secondary text-[20px]">location_on</span>
+                    <select id="filter-locality" class="w-full bg-surface-container-low border-2 border-transparent focus:border-primary rounded-xl py-3 pl-10 pr-8 text-on-surface outline-none transition-colors appearance-none"></select>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Quick toggles -->
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                <label class="toggle-card">
+                  <span class="font-semibold text-sm">Veg only</span>
+                  <input id="filter-veg" type="checkbox" class="sr-only peer" />
+                  <span class="toggle-track"></span>
+                </label>
+                <label class="toggle-card">
+                  <span class="font-semibold text-sm">Open now</span>
+                  <input id="filter-open" type="checkbox" class="sr-only peer" />
+                  <span class="toggle-track"></span>
+                </label>
+                <label class="toggle-card">
+                  <span class="font-semibold text-sm">Booking</span>
+                  <input id="filter-booking" type="checkbox" class="sr-only peer" />
+                  <span class="toggle-track"></span>
+                </label>
+                <label class="toggle-card">
+                  <span class="font-semibold text-sm">Delivery</span>
+                  <input id="filter-delivery" type="checkbox" class="sr-only peer" />
+                  <span class="toggle-track"></span>
+                </label>
+              </div>
+
+              <!-- Cuisines -->
+              <div>
+                <label class="font-semibold text-sm text-secondary block mb-2">Cuisines</label>
+                <div class="relative">
+                  <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-secondary text-[20px]">restaurant_menu</span>
+                  <select id="filter-cuisine-select" class="w-full bg-surface-container-low border-2 border-transparent focus:border-primary rounded-xl py-3 pl-10 pr-8 text-on-surface outline-none transition-colors appearance-none">
+                    <option value="">Add a cuisine…</option>
+                  </select>
+                </div>
+                <div id="cuisine-chips" class="flex flex-wrap gap-2 mt-3"></div>
+              </div>
+            </div>
+
+            <!-- Price + rating -->
+            <div class="md:col-span-4 glass-panel rounded-2xl p-4 flex flex-col gap-4 justify-between">
+              <div>
+                <label class="font-semibold text-sm text-secondary block mb-2">Max Price Range</label>
+                <div class="flex w-full bg-surface-container rounded-xl overflow-hidden p-1 gap-1" id="price-range">
+                  <button data-price="1" class="price-btn flex-1 py-2 rounded-lg font-semibold transition-colors">₹</button>
+                  <button data-price="2" class="price-btn flex-1 py-2 rounded-lg font-semibold transition-colors">₹₹</button>
+                  <button data-price="3" class="price-btn flex-1 py-2 rounded-lg font-semibold transition-colors">₹₹₹</button>
+                  <button data-price="4" class="price-btn flex-1 py-2 rounded-lg font-semibold transition-colors">₹₹₹₹</button>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between items-center mb-2">
+                  <label class="font-semibold text-sm text-secondary">Max Cost (for two)</label>
+                  <span id="cost-label" class="font-semibold text-sm text-primary">Any</span>
+                </div>
+                <input id="filter-cost" type="range" min="0" max="5000" step="100" value="0" class="w-full h-2 bg-surface-container rounded-lg appearance-none cursor-pointer" />
+              </div>
+              <div>
+                <label class="font-semibold text-sm text-secondary block mb-2">Minimum Rating</label>
+                <div class="flex items-center gap-2">
+                  <select id="filter-rating" class="flex-1 bg-surface-container-low border-2 border-transparent focus:border-primary rounded-xl py-2.5 px-3 text-on-surface outline-none transition-colors appearance-none">
+                    <option value="">Any rating</option>
+                    <option value="3.0">3.0+</option>
+                    <option value="3.5">3.5+</option>
+                    <option value="4.0">4.0+</option>
+                    <option value="4.5">4.5+</option>
+                  </select>
+                </div>
+              </div>
+              <div>
+                <label class="font-semibold text-sm text-secondary block mb-2">Results</label>
+                <select id="filter-topn" class="w-full bg-surface-container-low border-2 border-transparent focus:border-primary rounded-xl py-2.5 px-3 text-on-surface outline-none transition-colors appearance-none">
+                  <option value="3">Top 3</option>
+                  <option value="5" selected>Top 5</option>
+                  <option value="8">Top 8</option>
+                  <option value="10">Top 10</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <!-- ================= RESULTS VIEW ================= -->
+      <section id="results-view" class="hidden-soft">
+        <!-- Header -->
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-6 gap-4">
+          <div>
+            <h1 id="results-title" class="font-head text-3xl md:text-4xl font-extrabold mb-1">Results</h1>
+            <p id="results-subtitle" class="text-lg text-secondary"></p>
+          </div>
+        </div>
+
+        <!-- Intent banner -->
+        <div id="intent-banner" class="ai-gradient-bg rounded-2xl p-6 mb-6 border border-primary-fixed shadow-sm hidden-soft">
+          <div class="flex items-start gap-4">
+            <span class="material-symbols-outlined text-primary mt-1">auto_awesome</span>
+            <div class="flex-1">
+              <h3 class="font-head font-semibold mb-3">Understood your request as:</h3>
+              <div id="intent-pills" class="flex flex-wrap gap-2 mb-2"></div>
+              <div id="notes-callout" class="hidden-soft flex items-center bg-[#FFF8E1] border-l-4 border-[#FFB300] p-3 rounded-r-lg mt-3">
+                <span class="material-symbols-outlined text-[#FF8F00] mr-2">info</span>
+                <p id="notes-text" class="text-sm text-[#5D4037]"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Loading -->
+        <div id="loading-state" class="hidden-soft">
+          <div class="text-center mb-6">
+            <span class="material-symbols-outlined text-primary text-4xl pulse-subtle rounded-full">auto_awesome</span>
+            <h3 class="font-head text-xl font-bold mt-2">Finding and ranking the best spots…</h3>
+            <p class="text-secondary">Analyzing cuisines, ratings, and your preferences.</p>
+          </div>
+          <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6" id="skeletons"></div>
+        </div>
+
+        <!-- Results grid -->
+        <div id="results-grid" class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6"></div>
+
+        <!-- Empty -->
+        <div id="empty-state" class="hidden-soft glass-panel rounded-2xl p-12 text-center max-w-xl mx-auto">
+          <span class="material-symbols-outlined text-secondary text-4xl">search_off</span>
+          <h3 class="font-head text-xl font-bold mt-2">No restaurants matched</h3>
+          <p class="text-secondary mt-1 mb-5">
+            Try broadening your search or relaxing your filters to discover more places.
+          </p>
+          <button id="empty-reset" class="bg-primary text-on-primary font-semibold px-6 py-3 rounded-xl hover:bg-surface-tint transition-colors inline-flex items-center gap-2">
+            <span class="material-symbols-outlined text-[20px]">restart_alt</span> New search
+          </button>
+        </div>
+
+        <!-- Error -->
+        <div id="error-state" class="hidden-soft glass-panel rounded-2xl p-12 text-center max-w-xl mx-auto">
+          <span class="material-symbols-outlined text-error text-4xl">error</span>
+          <h3 class="font-head text-xl font-bold mt-2">Something went wrong</h3>
+          <p id="error-text" class="text-secondary mt-1 mb-5">Please try again.</p>
+          <button id="error-retry" class="bg-primary text-on-primary font-semibold px-6 py-3 rounded-xl hover:bg-surface-tint transition-colors inline-flex items-center gap-2">
+            <span class="material-symbols-outlined text-[20px]">refresh</span> Retry
+          </button>
+        </div>
+
+        <!-- Meta strip -->
+        <div id="meta-strip" class="hidden-soft mt-10 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-sm text-secondary"></div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-surface-container-lowest border-t border-outline-variant py-4 z-20 relative mt-auto">
+      <div class="flex flex-col sm:flex-row gap-2 justify-between items-center px-6 md:px-12 w-full max-w-container mx-auto text-sm text-secondary">
+        <div id="footer-meta">GourmetAI — hybrid AI restaurant recommendations</div>
+        <div class="flex gap-6">
+          <a class="hover:text-primary transition-colors" href="/docs" target="_blank">API Docs</a>
+          <a class="hover:text-primary transition-colors" href="/health" target="_blank">API Status</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Detail modal -->
+    <div id="detail-modal" class="hidden-soft fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop">
+      <div class="bg-surface-container-lowest rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto scroll-thin shadow-2xl">
+        <div id="modal-content" class="p-6 md:p-8"></div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

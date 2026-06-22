@@ -1,0 +1,863 @@
+[
+  {
+    "request": {
+      "query": "Cheap vegetarian street food near MG Road, open right now.",
+      "top_n": 5
+    },
+    "response": {
+      "query_understood": {
+        "hard_constraints": {
+          "city": "bengaluru",
+          "locality": "mg road",
+          "is_veg": true,
+          "cuisines": [],
+          "open_now": true,
+          "max_price_range": 1
+        },
+        "soft_preferences": []
+      },
+      "recommendations": [
+        {
+          "restaurant_id": "R2958",
+          "name": "KC Das",
+          "city": "bengaluru",
+          "locality": "mg road",
+          "cuisines": [
+            "Mithai",
+            "Street Food"
+          ],
+          "rating": 3.9,
+          "votes": 377,
+          "average_cost_for_two": 200,
+          "price_range": 1,
+          "is_veg": "Both",
+          "ambiance_tags": [
+            "dine-out",
+            "fast food",
+            "quick bites",
+            "sweets",
+            "traditional"
+          ],
+          "match_score": 0.9,
+          "rank": 1,
+          "reason": "KC Das serves Street Food and has a high rating of 3.9, with a price range of 1 and popular dishes like Samosa. It is a good fit for cheap vegetarian street food near MG Road."
+        },
+        {
+          "restaurant_id": "R6280",
+          "name": "Goli Vada Pav NO.1",
+          "city": "bengaluru",
+          "locality": "mg road",
+          "cuisines": [
+            "Street Food"
+          ],
+          "rating": 3.4,
+          "votes": 7,
+          "average_cost_for_two": 200,
+          "price_range": 1,
+          "is_veg": "Both",
+          "ambiance_tags": [
+            "delivery",
+            "fast food",
+            "quick bites"
+          ],
+          "match_score": 0.8,
+          "rank": 2,
+          "reason": "Goli Vada Pav NO.1 serves Street Food, has a price range of 1, and is located near MG Road. It is a good option for cheap vegetarian street food, although its rating is slightly lower at 3.4."
+        },
+        {
+          "restaurant_id": "R3549",
+          "name": "Ice N Spice",
+          "city": "bengaluru",
+          "locality": "mg road",
+          "cuisines": [
+            "Desserts"
+          ],
+          "rating": 3.7,
+          "votes": 17,
+          "average_cost_for_two": 200,
+          "price_range": 1,
+          "is_veg": "Both",
+          "ambiance_tags": [
+            "desserts",
+            "sweet"
+          ],
+          "match_score": 0.7,
+          "rank": 3,
+          "reason": "Ice N Spice has a price range of 1 and is located near MG Road, but it primarily serves Desserts. It may not be the best fit for street food, but it is still a cheap option."
+        },
+        {
+          "restaurant_id": "R3009",
+          "name": "Chetty's Coffee",
+          "city": "bengaluru",
+          "locality": "mg road",
+          "cuisines": [
+            "South Indian"
+          ],
+          "rating": 3.6,
+          "votes": 20,
+          "average_cost_for_two": 200,
+          "price_range": 1,
+          "is_veg": "Both",
+          "ambiance_tags": [
+            "delivery",
+            "fast food",
+            "quick bites"
+          ],
+          "match_score": 0.6,
+          "rank": 4,
+          "reason": "Chetty's Coffee serves South Indian cuisine, has a price range of 1, and is located near MG Road. Although it is not primarily a street food restaurant, it is still a cheap option with a rating of 3.6."
+        },
+        {
+          "restaurant_id": "R2905",
+          "name": "Little Bites",
+          "city": "bengaluru",
+          "locality": "mg road",
+          "cuisines": [
+            "Cafe",
+            "Fast Food"
+          ],
+          "rating": 3.6,
+          "votes": 7,
+          "average_cost_for_two": 200,
+          "price_range": 1,
+          "is_veg": "Both",
+          "ambiance_tags": [
+            "cafe",
+            "cafes",
+            "coffee",
+            "cozy",
+            "fast food",
+            "quick bites"
+          ],
+          "match_score": 0.5,
+          "rank": 5,
+          "reason": "Little Bites serves Cafe and Fast Food, has a price range of 1, and is located near MG Road. It is a cheap option, but its rating is slightly lower at 3.6 and it may not be the best fit for street food."
+        }
+      ],
+      "notes": null,
+      "meta": {
+        "candidate_count": 17,
+        "latency_ms": 2031,
+        "ranker": "groq",
+        "groq_model": "llama-3.3-70b-versatile"
+      }
+    }
+  },
+  {
+    "request": {
+      "query": "Romantic rooftop restaurant for an anniversary dinner, budget no concern.",
+      "top_n": 5
+    },
+    "response": {
+      "query_understood": {
+        "hard_constraints": {
+          "city": "bengaluru",
+          "cuisines": []
+        },
+        "soft_preferences": [
+          "romantic",
+          "rooftop"
+        ]
+      },
+      "recommendations": [
+        {
+          "restaurant_id": "R10901",
+          "name": "The Boozy Griffin",
+          "city": "bengaluru",
+          "locality": "marathahalli",
+          "cuisines": [
+            "European",
+            "Continental"
+          ],
+          "rating": 4.8,
+          "votes": 4705,
+          "average_cost_for_two": 1800,
+          "price_range": 4,
+          "is_veg": "Both",
+          "ambiance_tags": [
+            "drinks",
+            "drinks & nightlife",
+            "nightlife",
+            "pub"
+          ],
+          "match_score": 0.8,
+          "rank": 1,
+          "reason": "The Boozy Griffin has a high rating of 4.8 and ambiance tags including 'nightlife' and 'pub', which may contribute to a romantic atmosphere. However, it lacks a 'rooftop' tag."
+        },
+        {
+          "restaurant_id": "R2031",
+          "name": "The Black Pearl",
+          "city": "bengaluru",
+          "locality": "marathahalli",
+          "cuisines": [
+            "North Indian",
+            "European",
+            "Mediterranean",
+            "BBQ"
+          ],
+          "rating": 4.8,
+          "votes": 7284,
+          "average_cost_for_two": 1500,
+          "price_range": 3,
+          "is_veg": "Non-Veg",
+          "ambiance_tags": [
+            "bar",
+            "buffet",
+            "casual",
+            "drinks",
+            "nightlife",
+            "relaxed",
+            "unlimited"
+          ],
+          "match_score": 0.7,
+          "rank": 2,
+          "reason": "The Black Pearl has a high rating of 4.8 and ambiance tags including 'bar', 'nightlife', and 'relaxed', which may contribute to a romantic atmosphere. However, it lacks a 'rooftop' tag."
+        },
+        {
+          "restaurant_id": "R10636",
+          "name": "AB's - Absolute Barbecues",
+          "city": "bengaluru",
+          "locality": "marathahalli",
+          "cuisines": [
+            "European",
+            "Mediterranean",
+            "North Indian",
+            "BBQ"
+          ],
+          "rating": 4.8,
+          "votes": 12121,
+          "average_cost_for_two": 1600,
+          "price_range": 4,
+          "is_veg": "Non-Veg",
+          "ambiance_tags": [
+            "buffet",
+            "casual",
+            "relaxed",
+            "unlimited"
+          ],
+          "match_score": 0.6,
+          "rank": 3,
+          "reason": "AB's - Absolute Barbecues has a high rating of 4.8, but its ambiance tags are more focused on 'casual' and 'relaxed', which may not fully align with romantic or rooftop preferences."
+        },
+        {
+          "restaurant_id": "R4807",
+          "name": "AB's - Absolute Barbecues",
+          "city": "bengaluru",
+          "locality": "btm",
+          "cuisines": [
+            "European",
+            "Mediterranean",
+            "North Indian",
+            "BBQ"
+          ],
+          "rating": 4.9,
+          "votes": 6490,
+          "average_cost_for_two": 1600,
+          "price_range": 4,
+          "is_veg": "Non-Veg",
+          "ambiance_tags": [
+            "casual",
+            "dine-out",
+            "relaxed"
+          ],
+          "match_score": 0.5,
+          "rank": 4,
+          "reason": "AB's - Absolute Barbecues has a high rating of 4.9, but its ambiance tags are more focused on 'casual' and 'relaxed', which may not fully align with romantic or rooftop preferences."
+        },
+        {
+          "restaurant_id": "R3838",
+          "name": "Flechazo",
+          "city": "bengaluru",
+          "locality": "whitefield",
+          "cuisines": [
+            "Asian",
+            "Mediterranean",
+            "North Indian",
+            "BBQ"
+          ],
+          "rating": 4.9,
+          "votes": 3004,
+          "average_cost_for_two": 1400,
+          "price_range": 3,
+          "is_veg": "Non-Veg",
+          "ambiance_tags": [
+            "casual",
+            "dine-out",
+            "relaxed"
+          ],
+          "match_score": 0.4,
+          "rank": 5,
+          "reason": "Flechazo has a high rating of 4.9, but its ambiance tags are more focused on 'casual' and 'relaxed', which may not fully align with romantic or rooftop preferences."
+        }
+      ],
+      "notes": null,
+      "meta": {
+        "candidate_count": 12143,
+        "latency_ms": 1458,
+        "ranker": "groq",
+        "groq_model": "llama-3.3-70b-versatile"
+      }
+    }
+  },
+  {
+    "request": {
+      "query": "Family-friendly North Indian place that takes table bookings and seats large groups.",
+      "top_n": 5
+    },
+    "response": {
+      "query_understood": {
+        "hard_constraints": {
+          "city": "bengaluru",
+          "cuisines": [
+            "North Indian"
+          ],
+          "has_table_booking": true
+        },
+        "soft_preferences": [
+          "family-friendly",
+          "seats large groups"
+        ]
+      },
+      "recommendations": [
+        {
+          "restaurant_id": "R4807",
+          "name": "AB's - Absolute Barbecues",
+          "city": "bengaluru",
+          "locality": "btm",
+          "cuisines": [
+            "European",
+            "Mediterranean",
+            "North Indian",
+            "BBQ"
+          ],
+          "rating": 4.9,
+          "votes": 6490,
+          "average_cost_for_two": 1600,
+          "price_range": 4,
+          "is_veg": "Non-Veg",
+          "ambiance_tags": [
+            "casual",
+            "dine-out",
+            "relaxed"
+          ],
+          "match_score": 0.8,
+          "rank": 1,
+          "reason": "AB's - Absolute Barbecues has a high rating of 4.9 and serves North Indian cuisine, it also has a casual and relaxed ambiance which is suitable for families, however, it may not be the best fit for large groups as it doesn't have specific tags for seating large groups."
+        },
+        {
+          "restaurant_id": "R10636",
+          "name": "AB's - Absolute Barbecues",
+          "city": "bengaluru",
+          "locality": "marathahalli",
+          "cuisines": [
+            "European",
+            "Mediterranean",
+            "North Indian",
+            "BBQ"
+          ],
+          "rating": 4.8,
+          "votes": 12121,
+          "average_cost_for_two": 1600,
+          "price_range": 4,
+          "is_veg": "Non-Veg",
+          "ambiance_tags": [
+            "buffet",
+            "casual",
+            "relaxed",
+            "unlimited"
+          ],
+          "match_score": 0.7,
+          "rank": 2,
+          "reason": "AB's - Absolute Barbecues has a high rating of 4.8 and serves North Indian cuisine, it also has a casual and relaxed ambiance which is suitable for families, and has tags like 'buffet' and 'unlimited' which might be suitable for large groups."
+        },
+        {
+          "restaurant_id": "R3838",
+          "name": "Flechazo",
+          "city": "bengaluru",
+          "locality": "whitefield",
+          "cuisines": [
+            "Asian",
+            "Mediterranean",
+            "North Indian",
+            "BBQ"
+          ],
+          "rating": 4.9,
+          "votes": 3004,
+          "average_cost_for_two": 1400,
+          "price_range": 3,
+          "is_veg": "Non-Veg",
+          "ambiance_tags": [
+            "casual",
+            "dine-out",
+            "relaxed"
+          ],
+          "match_score": 0.6,
+          "rank": 3,
+          "reason": "Flechazo has a high rating of 4.9 and serves North Indian cuisine, it also has a casual and relaxed ambiance which is suitable for families, however, it may not be the best fit for large groups as it doesn't have specific tags for seating large groups."
+        },
+        {
+          "restaurant_id": "R10637",
+          "name": "The Globe Grub",
+          "city": "bengaluru",
+          "locality": "marathahalli",
+          "cuisines": [
+            "Continental",
+            "North Indian",
+            "Asian",
+            "Italian"
+          ],
+          "rating": 4.8,
+          "votes": 3932,
+          "average_cost_for_two": 1300,
+          "price_range": 3,
+          "is_veg": "Non-Veg",
+          "ambiance_tags": [
+            "buffet",
+            "casual",
+            "relaxed",
+            "unlimited"
+          ],
+          "match_score": 0.6,
+          "rank": 4,
+          "reason": "The Globe Grub has a high rating of 4.8 and serves North Indian cuisine, it also has a casual and relaxed ambiance which is suitable for families, and has tags like 'buffet' and 'unlimited' which might be suitable for large groups."
+        },
+        {
+          "restaurant_id": "R2031",
+          "name": "The Black Pearl",
+          "city": "bengaluru",
+          "locality": "marathahalli",
+          "cuisines": [
+            "North Indian",
+            "European",
+            "Mediterranean",
+            "BBQ"
+          ],
+          "rating": 4.8,
+          "votes": 7284,
+          "average_cost_for_two": 1500,
+          "price_range": 3,
+          "is_veg": "Non-Veg",
+          "ambiance_tags": [
+            "bar",
+            "buffet",
+            "casual",
+            "drinks",
+            "nightlife",
+            "relaxed",
+            "unlimited"
+          ],
+          "match_score": 0.5,
+          "rank": 5,
+          "reason": "The Black Pearl has a high rating of 4.8 and serves North Indian cuisine, it also has a casual and relaxed ambiance which is suitable for families, however, it may not be the best fit for large groups as it doesn't have specific tags for seating large groups and has a bar and nightlife ambiance."
+        }
+      ],
+      "notes": null,
+      "meta": {
+        "candidate_count": 528,
+        "latency_ms": 2207,
+        "ranker": "groq",
+        "groq_model": "llama-3.3-70b-versatile"
+      }
+    }
+  },
+  {
+    "request": {
+      "query": "Best-rated Chinese delivery under Rs.800 for two.",
+      "top_n": 5
+    },
+    "response": {
+      "query_understood": {
+        "hard_constraints": {
+          "city": "bengaluru",
+          "max_cost_for_two": 800,
+          "cuisines": [
+            "Chinese"
+          ],
+          "has_online_delivery": true,
+          "max_price_range": 1
+        },
+        "soft_preferences": []
+      },
+      "recommendations": [
+        {
+          "restaurant_id": "R4021",
+          "name": "HOMMS",
+          "city": "bengaluru",
+          "locality": "marathahalli",
+          "cuisines": [
+            "Momos",
+            "Chinese",
+            "Fast Food"
+          ],
+          "rating": 4.5,
+          "votes": 236,
+          "average_cost_for_two": 300,
+          "price_range": 1,
+          "is_veg": "Non-Veg",
+          "ambiance_tags": [
+            "delivery",
+            "fast food",
+            "quick bites"
+          ],
+          "match_score": 0.9,
+          "rank": 1,
+          "reason": "HOMMS has a high rating of 4.5 and serves Chinese cuisine with popular dishes like Chowmein, making it a great fit. It also has a reasonable average cost for two at ₹300."
+        },
+        {
+          "restaurant_id": "R3921",
+          "name": "BITEBOX",
+          "city": "bengaluru",
+          "locality": "marathahalli",
+          "cuisines": [
+            "North Indian",
+            "Chinese",
+            "Mughlai",
+            "Desserts"
+          ],
+          "rating": 4.5,
+          "votes": 157,
+          "average_cost_for_two": 300,
+          "price_range": 1,
+          "is_veg": "Both",
+          "ambiance_tags": [
+            "delivery",
+            "fast food",
+            "quick bites"
+          ],
+          "match_score": 0.8,
+          "rank": 2,
+          "reason": "BITEBOX has a high rating of 4.5 and serves Chinese cuisine, although its popular dishes are more diverse. It also has a reasonable average cost for two at ₹300."
+        },
+        {
+          "restaurant_id": "R4659",
+          "name": "Rolls & Bowls",
+          "city": "bengaluru",
+          "locality": "brookefield",
+          "cuisines": [
+            "Rolls",
+            "Chinese"
+          ],
+          "rating": 4.5,
+          "votes": 156,
+          "average_cost_for_two": 250,
+          "price_range": 1,
+          "is_veg": "Non-Veg",
+          "ambiance_tags": [
+            "delivery",
+            "fast food",
+            "quick bites"
+          ],
+          "match_score": 0.8,
+          "rank": 3,
+          "reason": "Rolls & Bowls has a high rating of 4.5 and serves Chinese cuisine with popular dishes like Noodles, making it a great fit. It also has a reasonable average cost for two at ₹250."
+        },
+        {
+          "restaurant_id": "R0460",
+          "name": "Ayodhya Upachar",
+          "city": "bengaluru",
+          "locality": "banashankari",
+          "cuisines": [
+            "South Indian",
+            "North Indian",
+            "Chinese",
+            "Street Food"
+          ],
+          "rating": 4.3,
+          "votes": 734,
+          "average_cost_for_two": 200,
+          "price_range": 1,
+          "is_veg": "Both",
+          "ambiance_tags": [
+            "delivery",
+            "fast food",
+            "quick bites"
+          ],
+          "match_score": 0.7,
+          "rank": 4,
+          "reason": "Ayodhya Upachar has a good rating of 4.3 and serves Chinese cuisine, although its popular dishes are more South Indian-oriented. It has a low average cost for two at ₹200."
+        },
+        {
+          "restaurant_id": "R0892",
+          "name": "Momo Jojo",
+          "city": "bengaluru",
+          "locality": "jp nagar",
+          "cuisines": [
+            "Chinese",
+            "Tibetan",
+            "Momos"
+          ],
+          "rating": 4.3,
+          "votes": 539,
+          "average_cost_for_two": 300,
+          "price_range": 1,
+          "is_veg": "Non-Veg",
+          "ambiance_tags": [
+            "delivery",
+            "fast food",
+            "quick bites"
+          ],
+          "match_score": 0.7,
+          "rank": 5,
+          "reason": "Momo Jojo has a good rating of 4.3 and serves Chinese cuisine with popular dishes like Noodles, making it a great fit. It also has a reasonable average cost for two at ₹300."
+        }
+      ],
+      "notes": null,
+      "meta": {
+        "candidate_count": 484,
+        "latency_ms": 14918,
+        "ranker": "groq",
+        "groq_model": "llama-3.3-70b-versatile"
+      }
+    }
+  },
+  {
+    "request": {
+      "query": "A quiet cafe good for working with a laptop and good coffee.",
+      "top_n": 5
+    },
+    "response": {
+      "query_understood": {
+        "hard_constraints": {
+          "city": "bengaluru",
+          "cuisines": []
+        },
+        "soft_preferences": [
+          "quiet",
+          "good for working with a laptop",
+          "good coffee"
+        ]
+      },
+      "recommendations": [
+        {
+          "restaurant_id": "R2962",
+          "name": "Belgian Waffle Factory",
+          "city": "bengaluru",
+          "locality": "brigade road",
+          "cuisines": [
+            "Desserts"
+          ],
+          "rating": 4.9,
+          "votes": 1750,
+          "average_cost_for_two": 400,
+          "price_range": 2,
+          "is_veg": "Both",
+          "ambiance_tags": [
+            "delivery",
+            "desserts",
+            "sweet"
+          ],
+          "match_score": 0.8,
+          "rank": 1,
+          "reason": "Belgian Waffle Factory serves coffee and has a relaxed ambiance, making it suitable for working with a laptop. However, it may not be completely quiet as it is a dessert parlor."
+        },
+        {
+          "restaurant_id": "R5370",
+          "name": "Belgian Waffle Factory",
+          "city": "bengaluru",
+          "locality": "koramangala 5th block",
+          "cuisines": [
+            "Desserts"
+          ],
+          "rating": 4.9,
+          "votes": 201,
+          "average_cost_for_two": 400,
+          "price_range": 2,
+          "is_veg": "Both",
+          "ambiance_tags": [
+            "desserts",
+            "sweet"
+          ],
+          "match_score": 0.8,
+          "rank": 2,
+          "reason": "Belgian Waffle Factory serves coffee and has a relaxed ambiance, making it suitable for working with a laptop. However, it may not be completely quiet as it is a dessert parlor."
+        },
+        {
+          "restaurant_id": "R10044",
+          "name": "CTR",
+          "city": "bengaluru",
+          "locality": "malleshwaram",
+          "cuisines": [
+            "South Indian"
+          ],
+          "rating": 4.8,
+          "votes": 4421,
+          "average_cost_for_two": 150,
+          "price_range": 1,
+          "is_veg": "Both",
+          "ambiance_tags": [
+            "delivery",
+            "fast food",
+            "quick bites"
+          ],
+          "match_score": 0.6,
+          "rank": 3,
+          "reason": "CTR serves filter coffee, which is a good coffee option, but it is a quick bites place and may not be suitable for working with a laptop due to its fast food ambiance."
+        },
+        {
+          "restaurant_id": "R1940",
+          "name": "Brahmin's Coffee Bar",
+          "city": "bengaluru",
+          "locality": "basavanagudi",
+          "cuisines": [
+            "South Indian"
+          ],
+          "rating": 4.8,
+          "votes": 2679,
+          "average_cost_for_two": 100,
+          "price_range": 1,
+          "is_veg": "Both",
+          "ambiance_tags": [
+            "dine-out",
+            "fast food",
+            "quick bites"
+          ],
+          "match_score": 0.6,
+          "rank": 4,
+          "reason": "Brahmin's Coffee Bar serves filter coffee, which is a good coffee option, and has a dine-out ambiance, but it may not be completely quiet or suitable for working with a laptop."
+        },
+        {
+          "restaurant_id": "R8116",
+          "name": "The Pizza Bakery",
+          "city": "bengaluru",
+          "locality": "indiranagar",
+          "cuisines": [
+            "Italian",
+            "Pizza",
+            "Beverages"
+          ],
+          "rating": 4.8,
+          "votes": 1785,
+          "average_cost_for_two": 1200,
+          "price_range": 3,
+          "is_veg": "Both",
+          "ambiance_tags": [
+            "casual",
+            "desserts",
+            "relaxed"
+          ],
+          "match_score": 0.4,
+          "rank": 5,
+          "reason": "The Pizza Bakery has a casual and relaxed ambiance, but it is primarily a pizza place and may not have the best coffee options, making it less suitable for the user's preferences."
+        }
+      ],
+      "notes": null,
+      "meta": {
+        "candidate_count": 12143,
+        "latency_ms": 23407,
+        "ranker": "groq",
+        "groq_model": "llama-3.3-70b-versatile"
+      }
+    }
+  },
+  {
+    "request": {
+      "query": "cozy vegetarian place for a date in Indiranagar",
+      "filters": {
+        "min_rating": 4.0,
+        "max_cost_for_two": 1500
+      },
+      "top_n": 3
+    },
+    "response": {
+      "query_understood": {
+        "hard_constraints": {
+          "city": "bengaluru",
+          "locality": "indiranagar",
+          "is_veg": true,
+          "max_cost_for_two": 1500,
+          "min_rating": 4.0,
+          "cuisines": []
+        },
+        "soft_preferences": [
+          "cozy",
+          "date"
+        ]
+      },
+      "recommendations": [
+        {
+          "restaurant_id": "R7791",
+          "name": "Smoor",
+          "city": "bengaluru",
+          "locality": "indiranagar",
+          "cuisines": [
+            "Desserts",
+            "Cafe",
+            "Beverages"
+          ],
+          "rating": 4.6,
+          "votes": 1732,
+          "average_cost_for_two": 900,
+          "price_range": 3,
+          "is_veg": "Both",
+          "ambiance_tags": [
+            "cafe",
+            "cafes",
+            "coffee",
+            "cozy",
+            "desserts",
+            "sweet"
+          ],
+          "match_score": 0.8,
+          "rank": 1,
+          "reason": "Smoor has a cozy ambiance and is suitable for a date, with a rating of 4.6 and an average cost of ₹900 for two. It serves desserts, cafe, and beverages, making it a good fit for the user's preferences."
+        },
+        {
+          "restaurant_id": "R7790",
+          "name": "Lavonne",
+          "city": "bengaluru",
+          "locality": "indiranagar",
+          "cuisines": [
+            "Cafe",
+            "Desserts"
+          ],
+          "rating": 4.4,
+          "votes": 1132,
+          "average_cost_for_two": 800,
+          "price_range": 2,
+          "is_veg": "Both",
+          "ambiance_tags": [
+            "cafe",
+            "coffee",
+            "cozy",
+            "desserts",
+            "sweet"
+          ],
+          "match_score": 0.7,
+          "rank": 2,
+          "reason": "Lavonne has a cozy ambiance and is suitable for a date, with a rating of 4.4 and an average cost of ₹800 for two. It serves cafe and desserts, making it a good option for the user's preferences."
+        },
+        {
+          "restaurant_id": "R7793",
+          "name": "Monet's Bistro",
+          "city": "bengaluru",
+          "locality": "indiranagar",
+          "cuisines": [
+            "Cafe",
+            "Beverages"
+          ],
+          "rating": 4.5,
+          "votes": 198,
+          "average_cost_for_two": 600,
+          "price_range": 2,
+          "is_veg": "Both",
+          "ambiance_tags": [
+            "cafe",
+            "coffee",
+            "cozy",
+            "dine-out"
+          ],
+          "match_score": 0.6,
+          "rank": 3,
+          "reason": "Monet's Bistro has a cozy ambiance and is suitable for a date, with a rating of 4.5 and an average cost of ₹600 for two. It serves cafe and beverages, making it a decent option for the user's preferences, although it may not be as highly rated as the top two options."
+        }
+      ],
+      "notes": null,
+      "meta": {
+        "candidate_count": 80,
+        "latency_ms": 19119,
+        "ranker": "groq",
+        "groq_model": "llama-3.3-70b-versatile"
+      }
+    }
+  }
+]

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Black Pearl - GourmetAI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-background": "#1a1c1b",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#dadad8",
+                        "on-primary-container": "#fffbff",
+                        "surface": "#f9f9f7",
+                        "on-tertiary-fixed-variant": "#7f2a0d",
+                        "on-primary-fixed-variant": "#92001c",
+                        "secondary": "#5f5e5e",
+                        "primary-container": "#db313f",
+                        "tertiary-fixed": "#ffdbd0",
+                        "on-error": "#ffffff",
+                        "secondary-fixed": "#e5e2e1",
+                        "inverse-surface": "#2f3130",
+                        "surface-bright": "#f9f9f7",
+                        "on-surface-variant": "#5b403f",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "surface-tint": "#bb162c",
+                        "inverse-on-surface": "#f1f1ef",
+                        "on-surface": "#1a1c1b",
+                        "surface-container-highest": "#e2e3e1",
+                        "tertiary-container": "#bb5636",
+                        "surface-container": "#eeeeec",
+                        "outline-variant": "#e4bebc",
+                        "primary-fixed-dim": "#ffb3b1",
+                        "surface-container-low": "#f4f4f2",
+                        "on-primary-fixed": "#410007",
+                        "primary": "#b7122a",
+                        "on-primary": "#ffffff",
+                        "inverse-primary": "#ffb3b1",
+                        "on-tertiary-container": "#fffbff",
+                        "on-error-container": "#93000a",
+                        "surface-variant": "#e2e3e1",
+                        "tertiary": "#9c3f20",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed": "#3a0b00",
+                        "background": "#f9f9f7",
+                        "on-secondary-container": "#636262",
+                        "outline": "#8f6f6e",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed-variant": "#474746",
+                        "secondary-container": "#e2dfde",
+                        "surface-container-high": "#e8e8e6",
+                        "primary-fixed": "#ffdad8",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#ffb59e",
+                        "surface-container-lowest": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "base": "8px",
+                        "stack-lg": "48px",
+                        "container-max": "1280px",
+                        "stack-md": "24px",
+                        "gutter": "24px",
+                        "stack-sm": "12px"
+                    },
+                    "fontFamily": {
+                        "ai-recommendation": ["Plus Jakarta Sans", "sans-serif"],
+                        "headline-lg": ["Plus Jakarta Sans", "sans-serif"],
+                        "headline-md": ["Plus Jakarta Sans", "sans-serif"],
+                        "label-bold": ["Work Sans", "sans-serif"],
+                        "body-lg": ["Work Sans", "sans-serif"],
+                        "body-md": ["Work Sans", "sans-serif"],
+                        "display-lg": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "ai-recommendation": ["16px", { "lineHeight": "1.4", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "700" }],
+                        "label-bold": ["14px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }]
+                    }
+                }
+            }
+        }
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Work+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+        .ai-pulse {
+            animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(183, 18, 42, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(183, 18, 42, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(183, 18, 42, 0); }
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+        }
+        .dark .glass-card {
+            background: rgba(47, 49, 48, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased transition-colors duration-300">
+<!-- TopNavBar -->
+<nav class="bg-surface dark:bg-on-background shadow-sm docked full-width top-0 sticky z-50 transition-colors duration-300">
+<div class="flex justify-between items-center w-full px-margin-desktop h-16 max-w-container-max mx-auto">
+<div class="flex items-center gap-6">
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">GourmetAI</span>
+<div class="hidden md:flex gap-4">
+<a class="font-body-md text-body-md text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">Discover</a>
+<a class="font-body-md text-body-md text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">Saved</a>
+<a class="font-body-md text-body-md text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">Collections</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="font-body-md text-body-md text-secondary dark:text-secondary-fixed-dim">San Francisco</span>
+<button class="text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors"><span class="material-symbols-outlined">notifications</span></button>
+<button class="text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors"><span class="material-symbols-outlined">account_circle</span></button>
+<button class="text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors ml-4 p-2 bg-surface-container rounded-full" id="themeToggle">
+<span class="material-symbols-outlined dark:hidden">dark_mode</span>
+<span class="material-symbols-outlined hidden dark:inline">light_mode</span>
+</button>
+</div>
+</div>
+</nav>
+<main class="max-w-container-max mx-auto px-margin-desktop py-stack-lg">
+<!-- Header Section -->
+<header class="flex flex-col md:flex-row justify-between items-start md:items-end mb-stack-lg gap-6">
+<div>
+<h1 class="font-display-lg text-display-lg text-on-background dark:text-on-secondary mb-2">The Black Pearl</h1>
+<div class="flex items-center gap-4 font-body-lg text-body-lg text-secondary dark:text-secondary-fixed-dim">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-primary">location_on</span> Marathahalli</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">star</span> 4.8 (1.2k reviews)</span>
+<span class="bg-surface-container dark:bg-surface-variant px-3 py-1 rounded-full text-label-bold font-label-bold text-on-surface-variant dark:text-secondary-fixed-dim">Non-Veg</span>
+</div>
+</div>
+<div class="flex gap-4">
+<button class="bg-primary text-on-primary font-label-bold text-label-bold px-6 py-3 rounded-lg hover:bg-surface-tint transition-colors shadow-sm">Book a Table</button>
+<button class="glass-card text-primary dark:text-primary-fixed-dim font-label-bold text-label-bold px-6 py-3 rounded-lg hover:bg-surface-container dark:hover:bg-inverse-surface transition-colors">View Menu</button>
+</div>
+</header>
+<!-- Bento Grid Content -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Main Content Column -->
+<div class="md:col-span-8 flex flex-col gap-stack-md">
+<!-- Hero Image -->
+<div class="w-full h-[400px] rounded-xl overflow-hidden relative shadow-sm">
+<div class="bg-cover bg-center w-full h-full absolute inset-0" data-alt="A wide angle shot of an upscale pirate-themed restaurant interior named The Black Pearl. The lighting is moody and dramatic with warm amber glows illuminating wooden ship-like decor. Tables are set elegantly in a modern light-mode style despite the dark wood. Professional architectural food photography style." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC3Ml5YVJlm7OSGrhB6QmFAubuQX1Qac7O3zrEEq_VWpi9suoCKPJCrrpB1j-5aX2VxKUKoFGlDT6lICw3NZiF4K3y2Ipd1xpreGkkOXhN5sDSqz3PQcwUnEcRfUbEO4YoFHVcW2m5BaId7q9InK-MjFz961zlheqGskp4Dz2AmuBdQFqivORNozizbW1_TbjIMgzw16Iobk4k9Oz9JlwbKJkiunZAjYQeuXnpbkFh5y5JKcUpDMMqHbHbt7hnxqDHKYEo_jmFNelY')"></div>
+</div>
+<!-- AI Highlight -->
+<div class="bg-surface-container-low dark:bg-inverse-surface border border-outline-variant dark:border-outline rounded-xl p-6 shadow-[0px_4px_20px_rgba(0,0,0,0.04)] relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-primary to-[#8B5CF6]"></div>
+<div class="flex items-start gap-6">
+<div class="flex flex-col items-center justify-center bg-surface dark:bg-on-background rounded-full w-24 h-24 shadow-sm ai-pulse shrink-0">
+<span class="font-headline-lg text-headline-lg text-transparent bg-clip-text bg-gradient-to-br from-primary to-[#8B5CF6]">98%</span>
+<span class="font-label-bold text-label-bold text-secondary dark:text-secondary-fixed-dim">Match</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-background dark:text-on-secondary mb-2 flex items-center gap-2"><span class="material-symbols-outlined text-primary">auto_awesome</span> Why this matches your taste</h3>
+<p class="font-ai-recommendation text-ai-recommendation text-on-surface-variant dark:text-secondary-fixed-dim">The Black Pearl perfectly aligns with your preference for immersive dining experiences and high-quality seafood. Based on your recent visits to oceanic-themed venues, our culinary intelligence engine highlights their signature 'Captain's Catch' which matches your flavor profile 95%. The lively ambiance suits your usual Friday night selections.</p>
+</div>
+</div>
+</div>
+<!-- Description & Dishes -->
+<section class="mt-stack-sm">
+<h2 class="font-headline-md text-headline-md text-on-background dark:text-on-secondary mb-4 border-b border-surface-container-highest dark:border-surface-variant pb-2">About The Black Pearl</h2>
+<p class="font-body-md text-body-md text-secondary dark:text-secondary-fixed-dim mb-stack-md leading-relaxed">
+                        Step aboard Bangalore's premier pirate-themed dining destination. The Black Pearl offers an unforgettable gastronomic journey with its elaborate buffet and live grills. The meticulously crafted ambiance, complete with ship masts and rustic wooden interiors, creates a swashbuckling atmosphere that complements our diverse menu spanning North Indian, Continental, and Mediterranean cuisines.
+                    </p>
+<h3 class="font-headline-md text-headline-md text-on-background dark:text-on-secondary mb-4">Popular Dishes</h3>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<!-- Dish 1 -->
+<div class="bg-surface dark:bg-inverse-surface rounded-lg overflow-hidden shadow-sm hover:-translate-y-1 transition-transform cursor-pointer">
+<div class="bg-cover bg-center w-full h-32" data-alt="A close up, appetizing shot of a beautifully plated serving of grilled prawns. The lighting is bright and modern, highlighting the glistening textures and vibrant orange and red spices. Soft, creamy background blur. High-end food photography style." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDFsR0q7jb8E8nk4bVQU4VBIizkk7HkiQe_qL7M0iZkF_xGtBW2INZzqWjlwz7anQhRZA2QPvsZgk0Bx7GjB14xbsAMpZH62qLkSwt_6io_tZrnNef7owT4cAfam0TBneHHi_UMInLLBP3FsYJPePGQnpXaacQx91waFzOVz11soqqCgcSTCQKIdrC_a973FAgbx_0UM3UeLdBzTi_Q2Igm6luoMAYerfUPEYUx_dhFsqtdLXd3roFULDn7_TkvUWIBOg76_d88YPw')"></div>
+<div class="p-3">
+<p class="font-label-bold text-label-bold text-on-background dark:text-on-secondary text-center">Pirate's Prawns</p>
+</div>
+</div>
+<!-- Dish 2 -->
+<div class="bg-surface dark:bg-inverse-surface rounded-lg overflow-hidden shadow-sm hover:-translate-y-1 transition-transform cursor-pointer">
+<div class="bg-cover bg-center w-full h-32" data-alt="A bright, modern shot of a colorful mocktail in a tall glass, garnished with tropical fruits and a tiny cocktail umbrella. The setting is a clean, upscale restaurant table. Lighting is fresh and inviting, highlighting the vibrant blues and pinks of the drink." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBsyMOGzElkc1SIzkFgzyJhTjgI60cOuhAkpF02WUlCqr3xC6C2DKP69WOUPfgwwBQZwMOfYz8nWYVsUlNA6smUrkurZocH6EbhI0elSXd2oidq8TidXRrjxImEUp6bIJVVPuq30ErremA_ObZAUQAtU3VpvLRp-4PCmx1cir-dcm8FeA9A6YrzDi2BiYHt6SIgdTOBPaRD8M9Ei-rOMcC40zTtEsGy9CLy1-dSxVmHhikBsVlugUR8hw29OzmoS_D2q6q582ZHIeI')"></div>
+<div class="p-3">
+<p class="font-label-bold text-label-bold text-on-background dark:text-on-secondary text-center">Blue Lagoon</p>
+</div>
+</div>
+<!-- Dish 3 -->
+<div class="bg-surface dark:bg-inverse-surface rounded-lg overflow-hidden shadow-sm hover:-translate-y-1 transition-transform cursor-pointer">
+<div class="bg-cover bg-center w-full h-32" data-alt="A macro shot of a rich, decadent chocolate brownie dessert served with vanilla ice cream, sitting on a dark ceramic plate. The image uses modern, bright lighting to show the contrasting textures of warm brownie and cold ice cream. High-end culinary photography." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBrUy9W57qbjI2gaAgaE3R6gagy9bMaxDpSMQiqf33J4KpIdGqBXuDFbI0GFMfJAvocoCBYkvcjY74sictidQq-wyv7r5QPLX4J57cQGZA-CO9oKXtELSi1ExaemYujjkvvRtzSE7ma4Q2jU1tHeZdmiU1Nyqi41hSRaT367dhgPKBRkWhlDeasDm1IlAnYjlnTPq6hCL5hIKYL_h0ygRWNqNbRNWz3PzYK23yZnpGoVvdykFZKnRnt-tL5sNXz3UMRKh9zFn1Rl6k')"></div>
+<div class="p-3">
+<p class="font-label-bold text-label-bold text-on-background dark:text-on-secondary text-center">Treasure Brownie</p>
+</div>
+</div>
+<!-- Dish 4 -->
+<div class="bg-surface dark:bg-inverse-surface rounded-lg overflow-hidden shadow-sm hover:-translate-y-1 transition-transform cursor-pointer">
+<div class="bg-cover bg-center w-full h-32" data-alt="An overhead shot of an assortment of fresh, vibrant kebabs sizzling on a small tabletop grill. The styling is modern and bright, with clean lines and focus on the appetizing textures of the grilled meats and vegetables. Premium dining aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAdNF-OzGlp1FqUH3YQvfTHeiRbIKMiVgj3FrO2KTfWrN6CHXoudG0p1gL569L2cb0459BtkddWzJqlVJpVRX6JIC00av5Q7cngICe_nIPkJHxjo8tIZh1ZyT-6JkhSYtiyLzjhkEmVwE7jrsZuS_2IZLGPJ1j-VB_YmvNxgi-ZeDo_b7qmIlvoiSJ69FCzdECMb0uOIWQYLAd5zp-IdMXLdKc-bihDNoxAFXZPBHdElzBAHjm0ysEjsVh4AiSCr8_e1ghZtZ40gJs')"></div>
+<div class="p-3">
+<p class="font-label-bold text-label-bold text-on-background dark:text-on-secondary text-center">Live Grills</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Sidebar Info Column -->
+<div class="md:col-span-4 flex flex-col gap-stack-md">
+<!-- Details Card -->
+<div class="bg-surface dark:bg-inverse-surface rounded-xl p-6 shadow-[0px_4px_20px_rgba(0,0,0,0.04)]">
+<h3 class="font-headline-md text-headline-md text-on-background dark:text-on-secondary mb-4 border-b border-surface-container-highest dark:border-surface-variant pb-2">Details</h3>
+<ul class="flex flex-col gap-4">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-1">restaurant</span>
+<div>
+<p class="font-label-bold text-label-bold text-on-surface-variant dark:text-secondary-fixed-dim">Cuisines</p>
+<p class="font-body-md text-body-md text-on-background dark:text-on-secondary">North Indian, Continental, Mediterranean</p>
+<div class="flex flex-wrap gap-2 mt-2">
+<span class="bg-surface-container dark:bg-surface-variant px-2 py-1 rounded text-xs font-label-bold text-on-surface-variant dark:text-secondary-fixed-dim">Buffet</span>
+<span class="bg-surface-container dark:bg-surface-variant px-2 py-1 rounded text-xs font-label-bold text-on-surface-variant dark:text-secondary-fixed-dim">Live Music</span>
+<span class="bg-surface-container dark:bg-surface-variant px-2 py-1 rounded text-xs font-label-bold text-on-surface-variant dark:text-secondary-fixed-dim">Full Bar Available</span>
+</div>
+</div>
+</li>
+<li class="flex items-start gap-3 border-t border-surface-container-highest dark:border-surface-variant pt-4">
+<span class="material-symbols-outlined text-primary mt-1">payments</span>
+<div>
+<p class="font-label-bold text-label-bold text-on-surface-variant dark:text-secondary-fixed-dim">Average Cost</p>
+<p class="font-body-md text-body-md text-on-background dark:text-on-secondary">₹1,800 for two (approx.)</p>
+</div>
+</li>
+<li class="flex items-start gap-3 border-t border-surface-container-highest dark:border-surface-variant pt-4">
+<span class="material-symbols-outlined text-primary mt-1">schedule</span>
+<div>
+<p class="font-label-bold text-label-bold text-on-surface-variant dark:text-secondary-fixed-dim">Opening Hours</p>
+<p class="font-body-md text-body-md text-on-background dark:text-on-secondary">12:00 PM - 4:00 PM, 6:30 PM - 11:30 PM</p>
+<span class="text-sm text-[#10B981] font-semibold">Open Now</span>
+</div>
+</li>
+<li class="flex items-start gap-3 border-t border-surface-container-highest dark:border-surface-variant pt-4">
+<span class="material-symbols-outlined text-primary mt-1">call</span>
+<div>
+<p class="font-label-bold text-label-bold text-on-surface-variant dark:text-secondary-fixed-dim">Phone Number</p>
+<p class="font-body-md text-body-md text-primary">+91 80 1234 5678</p>
+</div>
+</li>
+<li class="flex items-start gap-3 border-t border-surface-container-highest dark:border-surface-variant pt-4">
+<span class="material-symbols-outlined text-primary mt-1">location_on</span>
+<div>
+<p class="font-label-bold text-label-bold text-on-surface-variant dark:text-secondary-fixed-dim">Address</p>
+<p class="font-body-md text-body-md text-on-background dark:text-on-secondary mb-2">105, 1st A Cross Road, Jyothi Nivas College Road, Koramangala 5th Block, Bangalore</p>
+<!-- Map Placeholder -->
+<div class="w-full h-40 bg-surface-container dark:bg-surface-variant rounded-lg overflow-hidden flex items-center justify-center relative">
+<div class="bg-cover bg-center absolute inset-0 w-full h-full opacity-70" data-alt="A clean, minimalist street map snippet showing a specific location pinned in Bangalore, India. The map style is modern, using light grey and subtle white tones suitable for a sophisticated UI. The location pin is bright coral." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB8cpPx4nV9vWKQeh92IC1DjD2stnZf0VS2Gjga79hqEg7HxujIhTEJn9quAC8U0Q06W-kbnn44DUxCgoIwj6vtj4eHerlbC90VUHd2jHkzzUTs_F7nF9BsYSaIMmODd8g7aFrJUVRNIYe_H235rFZJjzd2VbMAbty-PcQXhTuiKxn6OiIbfVZncJejXv-sv07Ja5mq45uJmNaV118Y8m1qqnkCfNNgg_Sb0-2UCf5caOz-JK8hfYRXuX9zl8vRrwIxNFEpjkdOWEM')"></div>
+<span class="material-symbols-outlined text-primary z-10" style="font-size: 32px; font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-on-background border-t border-outline-variant dark:border-outline full-width py-base transition-colors duration-300 mt-stack-lg">
+<div class="flex justify-between items-center px-margin-desktop w-full max-w-container-max mx-auto">
+<span class="font-headline-lg text-headline-lg text-primary">GourmetAI</span>
+<span class="font-label-bold text-label-bold text-secondary dark:text-secondary-fixed-dim">© 2024 GourmetAI • 1,240 restaurants found in 0.4s</span>
+<div class="flex gap-4">
+<a class="font-label-bold text-label-bold text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">Privacy</a>
+<a class="font-label-bold text-label-bold text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">Terms</a>
+<a class="font-label-bold text-label-bold text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">API Status</a>
+</div>
+</div>
+</footer>
+<script>
+        // Simple dark mode toggle for preview
+        const themeToggleBtn = document.getElementById('themeToggle');
+        const html = document.documentElement;
+
+        themeToggleBtn.addEventListener('click', () => {
+            if (html.classList.contains('light')) {
+                html.classList.remove('light');
+                html.classList.add('dark');
+            } else {
+                html.classList.remove('dark');
+                html.classList.add('light');
+            }
+        });
+    </script>
+</body></html>

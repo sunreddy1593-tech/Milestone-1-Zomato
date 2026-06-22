@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GourmetAI - Culinary Intelligence</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&amp;family=Work+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-background": "#1a1c1b",
+                      "on-secondary": "#ffffff",
+                      "surface-dim": "#dadad8",
+                      "on-primary-container": "#fffbff",
+                      "surface": "#f9f9f7",
+                      "on-tertiary-fixed-variant": "#7f2a0d",
+                      "on-primary-fixed-variant": "#92001c",
+                      "secondary": "#5f5e5e",
+                      "primary-container": "#db313f",
+                      "tertiary-fixed": "#ffdbd0",
+                      "on-error": "#ffffff",
+                      "secondary-fixed": "#e5e2e1",
+                      "inverse-surface": "#2f3130",
+                      "surface-bright": "#f9f9f7",
+                      "on-surface-variant": "#5b403f",
+                      "secondary-fixed-dim": "#c8c6c5",
+                      "surface-tint": "#bb162c",
+                      "inverse-on-surface": "#f1f1ef",
+                      "on-surface": "#1a1c1b",
+                      "surface-container-highest": "#e2e3e1",
+                      "tertiary-container": "#bb5636",
+                      "surface-container": "#eeeeec",
+                      "outline-variant": "#e4bebc",
+                      "primary-fixed-dim": "#ffb3b1",
+                      "surface-container-low": "#f4f4f2",
+                      "on-primary-fixed": "#410007",
+                      "primary": "#b7122a",
+                      "on-primary": "#ffffff",
+                      "inverse-primary": "#ffb3b1",
+                      "on-tertiary-container": "#fffbff",
+                      "on-error-container": "#93000a",
+                      "surface-variant": "#e2e3e1",
+                      "tertiary": "#9c3f20",
+                      "error": "#ba1a1a",
+                      "on-tertiary-fixed": "#3a0b00",
+                      "background": "#f9f9f7",
+                      "on-secondary-container": "#636262",
+                      "outline": "#8f6f6e",
+                      "on-secondary-fixed": "#1c1b1b",
+                      "on-tertiary": "#ffffff",
+                      "on-secondary-fixed-variant": "#474746",
+                      "secondary-container": "#e2dfde",
+                      "surface-container-high": "#e8e8e6",
+                      "primary-fixed": "#ffdad8",
+                      "error-container": "#ffdad6",
+                      "tertiary-fixed-dim": "#ffb59e",
+                      "surface-container-lowest": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px",
+                      "2xl": "1.5rem"
+              },
+              "spacing": {
+                      "margin-desktop": "64px",
+                      "base": "8px",
+                      "stack-lg": "48px",
+                      "container-max": "1280px",
+                      "stack-md": "24px",
+                      "gutter": "24px",
+                      "stack-sm": "12px"
+              },
+              "fontFamily": {
+                      "ai-recommendation": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "headline-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "headline-md": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "label-bold": [
+                              "Work Sans"
+                      ],
+                      "body-lg": [
+                              "Work Sans"
+                      ],
+                      "body-md": [
+                              "Work Sans"
+                      ],
+                      "display-lg": [
+                              "Plus Jakarta Sans"
+                      ]
+              },
+              "fontSize": {
+                      "ai-recommendation": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-bold": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "800"
+                              }
+                      ]
+              }
+            },
+          }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.05);
+        }
+        .ai-border {
+            border: 1.5px solid #ffb3b1; /* primary-fixed-dim */
+        }
+        .ai-gradient-text {
+            background: linear-gradient(135deg, #b7122a 0%, #8B5CF6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .pulse-subtle {
+            animation: pulse-soft 3s infinite;
+        }
+        @keyframes pulse-soft {
+            0% { box-shadow: 0 0 0 0 rgba(183, 18, 42, 0.1); }
+            70% { box-shadow: 0 0 0 10px rgba(183, 18, 42, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(183, 18, 42, 0); }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col relative overflow-x-hidden">
+<!-- Subtle warm gradient background -->
+<div class="absolute inset-0 z-0 pointer-events-none" style="background: radial-gradient(circle at 50% 0%, rgba(255,218,216,0.4) 0%, rgba(249,249,247,0) 60%);"></div>
+<!-- TopNavBar -->
+<header class="relative z-50 bg-surface shadow-sm docked full-width top-0">
+<div class="flex justify-between items-center w-full px-margin-desktop h-16 max-w-container-max mx-auto">
+<!-- Brand -->
+<div class="font-headline-md text-headline-md font-bold text-primary">
+                GourmetAI
+            </div>
+<!-- Navigation Links (Desktop) -->
+<nav class="hidden md:flex gap-stack-md font-body-md text-body-md">
+<a class="text-primary border-b-2 border-primary pb-1 font-bold" href="#">Discover</a>
+<a class="text-secondary hover:text-primary transition-colors" href="#">Saved</a>
+<a class="text-secondary hover:text-primary transition-colors" href="#">Collections</a>
+</nav>
+<!-- Trailing Actions -->
+<div class="flex items-center gap-base">
+<span class="text-secondary font-label-bold text-label-bold mr-4 hidden sm:block">San Francisco</span>
+<button class="text-secondary hover:text-primary transition-colors hover:scale-95 duration-150">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">notifications</span>
+</button>
+<button class="text-secondary hover:text-primary transition-colors hover:scale-95 duration-150">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow relative z-10 flex flex-col items-center justify-start pt-stack-lg pb-stack-lg px-gutter max-w-container-max mx-auto w-full">
+<!-- Hero Section -->
+<section class="text-center mt-stack-lg mb-stack-md w-full max-w-4xl">
+<h1 class="font-display-lg text-display-lg text-on-background mb-stack-sm">
+                Tell us what you're craving
+            </h1>
+<p class="font-body-lg text-body-lg text-secondary max-w-2xl mx-auto">
+                Describe your perfect meal — we'll find and explain the best spots.
+            </p>
+</section>
+<!-- Search Area -->
+<section class="w-full max-w-3xl mb-stack-lg relative">
+<div class="glass-panel rounded-2xl p-2 flex flex-col sm:flex-row items-center gap-2 shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-all duration-300 focus-within:shadow-[0_8px_40px_rgba(183,18,42,0.15)] focus-within:border-primary-fixed-dim">
+<div class="flex-grow flex items-center w-full px-4 py-2">
+<span class="material-symbols-outlined text-primary mr-3 text-[28px] pulse-subtle">auto_awesome</span>
+<input class="w-full bg-transparent border-none focus:ring-0 font-body-lg text-body-lg text-on-background placeholder-secondary-fixed-dim outline-none" placeholder="e.g., 'Cozy Italian place with great pasta and a quiet atmosphere'" type="text"/>
+</div>
+<button class="w-full sm:w-auto bg-primary text-on-primary font-label-bold text-label-bold px-8 py-4 rounded-xl hover:bg-surface-tint transition-colors shadow-md flex-shrink-0 whitespace-nowrap">
+                    Find restaurants
+                </button>
+</div>
+<!-- Example Queries Chips -->
+<div class="flex flex-wrap justify-center gap-3 mt-stack-sm">
+<button class="bg-surface-container-low hover:bg-surface-container-high text-on-surface-variant font-label-bold text-label-bold px-4 py-2 rounded-lg border border-outline-variant transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">restaurant</span>
+                    Cheap vegetarian street food
+                </button>
+<button class="bg-surface-container-low hover:bg-surface-container-high text-on-surface-variant font-label-bold text-label-bold px-4 py-2 rounded-lg border border-outline-variant transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">nightlight</span>
+                    Romantic rooftop dinner
+                </button>
+<button class="bg-surface-container-low hover:bg-surface-container-high text-on-surface-variant font-label-bold text-label-bold px-4 py-2 rounded-lg border border-outline-variant transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">laptop_mac</span>
+                    Quiet cafe for work
+                </button>
+</div>
+</section>
+<!-- Advanced Filters Bento Grid -->
+<section class="w-full max-w-5xl mt-stack-md">
+<div class="flex items-center justify-between mb-4 px-2">
+<h2 class="font-headline-md text-headline-md text-on-background flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">tune</span> Advanced Filters
+                </h2>
+<button class="text-secondary hover:text-primary font-label-bold text-label-bold transition-colors">
+                    Reset All
+                </button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Location & Cuisines (Spans 8 cols) -->
+<div class="md:col-span-8 glass-panel rounded-2xl p-stack-sm flex flex-col gap-stack-sm">
+<div class="flex flex-col sm:flex-row gap-gutter">
+<!-- City Input -->
+<div class="flex-1">
+<label class="font-label-bold text-label-bold text-secondary block mb-2">City</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 transform -translate-y-1/2 text-secondary">location_on</span>
+<input class="w-full bg-[#F1F1F1] border-2 border-transparent focus:border-primary rounded-lg py-3 pl-10 pr-4 font-body-md text-on-background outline-none transition-colors" type="text" value="San Francisco"/>
+</div>
+</div>
+<!-- Quick Toggles -->
+<div class="flex-1 flex gap-4">
+<div class="flex-1 bg-surface-container-low rounded-lg p-3 flex items-center justify-between border border-outline-variant">
+<span class="font-label-bold text-label-bold text-on-surface">Vegetarian</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-surface-dim peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="flex-1 bg-surface-container-low rounded-lg p-3 flex items-center justify-between border border-outline-variant">
+<span class="font-label-bold text-label-bold text-on-surface">Open Now</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-surface-dim peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</div>
+<!-- Cuisines -->
+<div>
+<label class="font-label-bold text-label-bold text-secondary block mb-2">Popular Cuisines</label>
+<div class="flex flex-wrap gap-2">
+<button class="bg-[#EEEEEE] hover:bg-surface-container-high text-on-surface font-label-bold text-label-bold px-3 py-1.5 rounded-lg transition-colors">Italian</button>
+<button class="bg-primary text-on-primary font-label-bold text-label-bold px-3 py-1.5 rounded-lg transition-colors shadow-sm">Japanese</button>
+<button class="bg-[#EEEEEE] hover:bg-surface-container-high text-on-surface font-label-bold text-label-bold px-3 py-1.5 rounded-lg transition-colors">Mexican</button>
+<button class="bg-[#EEEEEE] hover:bg-surface-container-high text-on-surface font-label-bold text-label-bold px-3 py-1.5 rounded-lg transition-colors">Thai</button>
+<button class="bg-[#EEEEEE] hover:bg-surface-container-high text-on-surface font-label-bold text-label-bold px-3 py-1.5 rounded-lg transition-colors">Indian</button>
+<button class="bg-[#EEEEEE] hover:bg-surface-container-high text-on-surface font-label-bold text-label-bold px-3 py-1.5 rounded-lg transition-colors">Mediterranean</button>
+</div>
+</div>
+</div>
+<!-- Price & Rating (Spans 4 cols) -->
+<div class="md:col-span-4 glass-panel rounded-2xl p-stack-sm flex flex-col gap-stack-sm justify-between">
+<!-- Price Range -->
+<div>
+<label class="font-label-bold text-label-bold text-secondary block mb-2">Price Range</label>
+<div class="flex w-full bg-[#EEEEEE] rounded-lg overflow-hidden p-1 gap-1">
+<button class="flex-1 py-2 text-center rounded-md bg-white shadow-sm font-label-bold text-primary">₹</button>
+<button class="flex-1 py-2 text-center rounded-md hover:bg-white/50 text-secondary font-label-bold transition-colors">₹₹</button>
+<button class="flex-1 py-2 text-center rounded-md hover:bg-white/50 text-secondary font-label-bold transition-colors">₹₹₹</button>
+<button class="flex-1 py-2 text-center rounded-md hover:bg-white/50 text-secondary font-label-bold transition-colors">₹₹₹₹</button>
+</div>
+</div>
+<!-- Max Cost Slider -->
+<div>
+<div class="flex justify-between items-center mb-2">
+<label class="font-label-bold text-label-bold text-secondary">Max Cost</label>
+<span class="font-label-bold text-label-bold text-primary">₹1500</span>
+</div>
+<input class="w-full h-2 bg-[#EEEEEE] rounded-lg appearance-none cursor-pointer accent-primary" max="5000" min="500" type="range" value="1500"/>
+</div>
+<!-- Minimum Rating -->
+<div>
+<label class="font-label-bold text-label-bold text-secondary block mb-2">Minimum Rating</label>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary-fixed-dim" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-bold text-label-bold text-on-surface ml-2">4.0+</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Row Bento -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter mt-gutter">
+<!-- AI Suggestion Card -->
+<div class="glass-panel ai-border rounded-2xl p-stack-sm flex items-start gap-4 relative overflow-hidden">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-primary-fixed-dim rounded-full blur-2xl opacity-30"></div>
+<div class="bg-primary/10 p-3 rounded-xl flex-shrink-0">
+<span class="material-symbols-outlined text-primary">tips_and_updates</span>
+</div>
+<div>
+<h3 class="font-ai-recommendation text-ai-recommendation text-on-surface mb-1">AI Smart Suggestion</h3>
+<p class="font-body-md text-body-md text-secondary">Based on your recent searches for "quiet cafes", try enabling the <strong>"Table booking"</strong> toggle to ensure a guaranteed spot for working.</p>
+</div>
+</div>
+<!-- Table Booking Toggle & CTA -->
+<div class="glass-panel rounded-2xl p-stack-sm flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="bg-[#EEEEEE] p-3 rounded-xl">
+<span class="material-symbols-outlined text-secondary">event_seat</span>
+</div>
+<div>
+<span class="font-label-bold text-label-bold text-on-surface block">Table Booking Available</span>
+<span class="font-body-sm text-secondary text-sm">Only show places you can reserve</span>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-surface-dim peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</section>
+<!-- Decorative subtle food imagery element -->
+<div class="absolute bottom-0 right-0 w-64 h-64 pointer-events-none opacity-5 mix-blend-multiply" data-alt="A subtle, high-key light mode watermark illustration of fresh culinary ingredients like basil leaves, tomatoes, and pasta, creating a soft appetizing texture in the background" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDfMMxYXFsjJ8EPgfYXmh7ABJJNNQksxvbbtmgKaKQaRNmbBdvUtJdCuo2W9FwoNc7U5tLcThQjs5xysX3SZfiyJqSZJ-Cc4oIZfO_oQjTuYHGKN7dXVyBbzrY5oReVtykjA4jui6LacZU8xD6_RxWPVO4IgWa2kI-L4hUHm984Qddu_XWR81lGTUm6K6Yd6Gm09o_WYnSVD_gsnekEMdwHlTF-IC6nv7fTg1P_1YLEczXnHJsun-ZzygE8754c-KlT2Cv9fBXPTJY')"></div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant py-base full-width z-20">
+<div class="flex justify-between items-center px-margin-desktop w-full max-w-container-max mx-auto font-label-bold text-label-bold text-secondary">
+<div>
+                © 2024 GourmetAI • 1,240 restaurants found in 0.4s
+            </div>
+<div class="flex gap-stack-md">
+<a class="hover:text-primary transition-colors duration-200" href="#">Privacy</a>
+<a class="hover:text-primary transition-colors duration-200" href="#">Terms</a>
+<a class="hover:text-primary transition-colors duration-200" href="#">API Status</a>
+</div>
+</div>
+</footer>
+</body></html>

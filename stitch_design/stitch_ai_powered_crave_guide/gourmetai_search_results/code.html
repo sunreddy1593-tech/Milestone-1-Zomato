@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GourmetAI - Romantic rooftop dinner in Bengaluru</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Work+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-background": "#1a1c1b",
+                      "on-secondary": "#ffffff",
+                      "surface-dim": "#dadad8",
+                      "on-primary-container": "#fffbff",
+                      "surface": "#f9f9f7",
+                      "on-tertiary-fixed-variant": "#7f2a0d",
+                      "on-primary-fixed-variant": "#92001c",
+                      "secondary": "#5f5e5e",
+                      "primary-container": "#db313f",
+                      "tertiary-fixed": "#ffdbd0",
+                      "on-error": "#ffffff",
+                      "secondary-fixed": "#e5e2e1",
+                      "inverse-surface": "#2f3130",
+                      "surface-bright": "#f9f9f7",
+                      "on-surface-variant": "#5b403f",
+                      "secondary-fixed-dim": "#c8c6c5",
+                      "surface-tint": "#bb162c",
+                      "inverse-on-surface": "#f1f1ef",
+                      "on-surface": "#1a1c1b",
+                      "surface-container-highest": "#e2e3e1",
+                      "tertiary-container": "#bb5636",
+                      "surface-container": "#eeeeec",
+                      "outline-variant": "#e4bebc",
+                      "primary-fixed-dim": "#ffb3b1",
+                      "surface-container-low": "#f4f4f2",
+                      "on-primary-fixed": "#410007",
+                      "primary": "#b7122a",
+                      "on-primary": "#ffffff",
+                      "inverse-primary": "#ffb3b1",
+                      "on-tertiary-container": "#fffbff",
+                      "on-error-container": "#93000a",
+                      "surface-variant": "#e2e3e1",
+                      "tertiary": "#9c3f20",
+                      "error": "#ba1a1a",
+                      "on-tertiary-fixed": "#3a0b00",
+                      "background": "#f9f9f7",
+                      "on-secondary-container": "#636262",
+                      "outline": "#8f6f6e",
+                      "on-secondary-fixed": "#1c1b1b",
+                      "on-tertiary": "#ffffff",
+                      "on-secondary-fixed-variant": "#474746",
+                      "secondary-container": "#e2dfde",
+                      "surface-container-high": "#e8e8e6",
+                      "primary-fixed": "#ffdad8",
+                      "error-container": "#ffdad6",
+                      "tertiary-fixed-dim": "#ffb59e",
+                      "surface-container-lowest": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-desktop": "64px",
+                      "base": "8px",
+                      "stack-lg": "48px",
+                      "container-max": "1280px",
+                      "stack-md": "24px",
+                      "gutter": "24px",
+                      "stack-sm": "12px"
+              },
+              "fontFamily": {
+                      "ai-recommendation": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "headline-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "headline-md": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "label-bold": [
+                              "Work Sans"
+                      ],
+                      "body-lg": [
+                              "Work Sans"
+                      ],
+                      "body-md": [
+                              "Work Sans"
+                      ],
+                      "display-lg": [
+                              "Plus Jakarta Sans"
+                      ]
+              },
+              "fontSize": {
+                      "ai-recommendation": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-bold": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "800"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .fill-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        .ai-pulse {
+            animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse-ring {
+            0% { box-shadow: 0 0 0 0 rgba(183, 18, 42, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(183, 18, 42, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(183, 18, 42, 0); }
+        }
+
+        .ai-gradient-text {
+            background: linear-gradient(135deg, #b7122a 0%, #8B5CF6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .ai-gradient-bg {
+             background: linear-gradient(135deg, rgba(183, 18, 42, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+        }
+        
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.08);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md antialiased selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar -->
+<header class="sticky top-0 z-50 bg-surface dark:bg-on-background shadow-sm w-full">
+<div class="flex justify-between items-center w-full px-margin-desktop h-16 max-w-container-max mx-auto">
+<!-- Brand -->
+<a class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim tracking-tight" href="#">GourmetAI</a>
+<!-- Compact Search -->
+<div class="flex-1 max-w-2xl mx-gutter hidden md:flex items-center bg-surface-container-low rounded-full px-4 py-2 border border-outline-variant focus-within:border-primary transition-colors">
+<span class="material-symbols-outlined text-secondary mr-2" data-icon="search">search</span>
+<input class="bg-transparent border-none outline-none w-full font-body-md text-body-md text-on-surface placeholder-on-surface-variant focus:ring-0" placeholder="Ask AI for restaurant matches..." type="text" value="Romantic rooftop dinner in Bengaluru"/>
+</div>
+<!-- Navigation Links -->
+<nav class="hidden lg:flex items-center space-x-6">
+<a class="font-body-md text-body-md text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">Discover</a>
+<a class="font-body-md text-body-md text-primary dark:text-primary-fixed-dim border-b-2 border-primary dark:border-primary-fixed-dim pb-1" href="#">Saved</a>
+<a class="font-body-md text-body-md text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">Collections</a>
+</nav>
+<!-- Trailing Actions -->
+<div class="flex items-center space-x-4">
+<span class="font-label-bold text-label-bold text-secondary hidden sm:block">San Francisco</span>
+<button aria-label="Notifications" class="text-secondary hover:text-primary transition-colors p-1">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button aria-label="Account" class="text-secondary hover:text-primary transition-colors p-1">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<div class="flex-1 flex max-w-container-max mx-auto w-full">
+<!-- SideNavBar -->
+<aside class="hidden md:flex flex-col py-stack-md px-base w-64 border-r border-outline-variant dark:border-outline bg-surface-container-low dark:bg-inverse-surface sticky top-16 h-[calc(100vh-4rem)] overflow-y-auto">
+<div class="mb-stack-md px-4">
+<div class="flex items-center space-x-3 mb-2">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container ai-pulse">
+<span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+</div>
+<div>
+<h2 class="font-label-bold text-label-bold text-on-surface">Smart Filters</h2>
+<p class="font-body-md text-sm text-secondary">Refine your match</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1 px-2">
+<a class="flex items-center space-x-3 px-3 py-2 rounded-lg text-primary dark:text-primary-fixed-dim font-bold bg-surface-container-high dark:bg-surface-variant transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="restaurant">restaurant</span>
+<span class="font-label-bold text-label-bold">Cuisine</span>
+</a>
+<a class="flex items-center space-x-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-variant transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-label-bold text-label-bold">Price Range</span>
+</a>
+<a class="flex items-center space-x-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-variant transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="star">star</span>
+<span class="font-label-bold text-label-bold">Rating</span>
+</a>
+<a class="flex items-center space-x-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-variant transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="leafy_green">dual_screen</span>
+<span class="font-label-bold text-label-bold">Dietary</span>
+</a>
+</nav>
+<div class="px-4 mt-auto mb-4">
+<button class="w-full py-2 px-4 rounded-lg border border-outline text-on-surface font-label-bold text-label-bold hover:bg-surface-container-highest transition-colors">Reset All</button>
+</div>
+<div class="border-t border-outline-variant pt-4 px-2 space-y-1">
+<a class="flex items-center space-x-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-bold text-label-bold">Settings</span>
+</a>
+<a class="flex items-center space-x-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-label-bold text-label-bold">Help</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 w-full px-4 md:px-margin-desktop py-stack-md overflow-y-auto">
+<!-- Result Meta Header -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-stack-md gap-4">
+<div>
+<h1 class="font-display-lg text-display-lg text-on-surface mb-2">12 places found</h1>
+<p class="font-body-lg text-body-lg text-secondary">Curated matches for your romantic evening.</p>
+</div>
+</div>
+<!-- AI Intent Banner -->
+<div class="ai-gradient-bg rounded-xl p-6 mb-stack-md border border-primary-fixed shadow-sm">
+<div class="flex items-start gap-4">
+<div class="mt-1">
+<span class="material-symbols-outlined text-primary ai-pulse" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<div class="flex-1">
+<h3 class="font-ai-recommendation text-ai-recommendation text-on-surface mb-3">Understood your request as:</h3>
+<div class="flex flex-wrap gap-2 mb-4">
+<!-- Hard Constraints -->
+<div class="flex items-center bg-surface px-3 py-1.5 rounded-lg border border-outline-variant shadow-sm">
+<span class="material-symbols-outlined text-secondary text-sm mr-1.5" data-icon="location_on">location_on</span>
+<span class="font-label-bold text-sm text-on-surface">City: Bengaluru</span>
+</div>
+<div class="flex items-center bg-surface px-3 py-1.5 rounded-lg border border-outline-variant shadow-sm">
+<span class="material-symbols-outlined text-secondary text-sm mr-1.5" data-icon="schedule">schedule</span>
+<span class="font-label-bold text-sm text-on-surface">Open now</span>
+</div>
+<div class="flex items-center bg-surface px-3 py-1.5 rounded-lg border border-outline-variant shadow-sm">
+<span class="material-symbols-outlined text-secondary text-sm mr-1.5" data-icon="event_seat">event_seat</span>
+<span class="font-label-bold text-sm text-on-surface">Table booking</span>
+</div>
+<!-- Soft Preferences (Tags) -->
+<div class="flex items-center bg-secondary-container px-3 py-1.5 rounded-lg border border-transparent">
+<span class="font-label-bold text-sm text-on-secondary-container">Rooftop</span>
+</div>
+<div class="flex items-center bg-secondary-container px-3 py-1.5 rounded-lg border border-transparent">
+<span class="font-label-bold text-sm text-on-secondary-container">Romantic</span>
+</div>
+<div class="flex items-center bg-secondary-container px-3 py-1.5 rounded-lg border border-transparent">
+<span class="font-label-bold text-sm text-on-secondary-container">Anniversary</span>
+</div>
+</div>
+<!-- AI Callout Note -->
+<div class="flex items-center bg-[#FFF8E1] border-l-4 border-[#FFB300] p-3 rounded-r-lg">
+<span class="material-symbols-outlined text-[#FF8F00] mr-2" data-icon="info">info</span>
+<p class="font-body-md text-sm text-[#5D4037]">Broadened search slightly to include nearby Indiranagar for better rooftop views.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Results Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-gutter">
+<!-- Card 1 -->
+<article class="bg-surface-container-lowest rounded-[24px] overflow-hidden shadow-sm border border-outline-variant card-hover transition-all duration-300 flex flex-col h-full relative">
+<!-- Rank Badge -->
+<div class="absolute top-4 left-4 z-10 bg-on-background text-surface px-3 py-1 rounded-full font-label-bold text-sm shadow-md flex items-center">
+<span class="material-symbols-outlined text-sm mr-1 text-[#FFD700] fill-icon" data-icon="workspace_premium">workspace_premium</span>
+                        #1 Match
+                    </div>
+<!-- Image Area -->
+<div class="relative h-56 w-full bg-surface-container">
+<img alt="Restaurant interior" class="w-full h-full object-cover" data-alt="A highly detailed professional food photography shot of a high-end rooftop dining setup at night. The scene is illuminated by warm, romantic string lights and soft candlelight on the table. The table is elegantly set with fine dinnerware, polished wine glasses reflecting the city lights, and a vibrant, artfully plated modern Indian fusion dish. In the blurred background, the distant city skyline glows gently against a deep indigo night sky. The aesthetic is luxurious, intimate, and inviting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYCB2qwbrcHTf88YX_k9oDSAkFGcNZJVH9dypZ-KTP69AtdRNvX5fXtM0Jbor-D4sqVIyiQxESJ9_fg1k_H8PLbuMUITsCmyB211JTM9ZFqg88818_SdXkkfuHuq9BQeEKBHCiI7eX7VEuwVUiAqfA0ebtYUJxCKbgZBQwQ6tzD8oCkLHNCPjCaCEve6RVOi04R5kIsWsW0jXUAw0wCdqSgAg9dnetLTxrvIm5OePQ1mWDbNRC7OmqWaO0F9Y7--JNMwqay5QeiD8"/>
+<!-- Match Score Indicator -->
+<div class="absolute -bottom-6 right-6 z-10">
+<div class="w-14 h-14 rounded-full bg-surface flex items-center justify-center shadow-lg border-4 border-surface relative">
+<svg class="absolute inset-0 w-full h-full transform -rotate-90" viewbox="0 0 36 36">
+<path class="text-surface-container-high" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3"></path>
+<path class="text-primary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="96, 100" stroke-width="3"></path>
+</svg>
+<span class="font-headline-md text-sm font-bold text-on-surface relative z-10">96%</span>
+</div>
+</div>
+</div>
+<!-- Content Area -->
+<div class="p-6 flex-1 flex flex-col">
+<div class="mb-2 pr-12">
+<h2 class="font-headline-md text-headline-md text-on-surface line-clamp-1">Fenny's Lounge &amp; Kitchen</h2>
+<p class="font-body-md text-sm text-secondary">Koramangala, Bengaluru</p>
+</div>
+<!-- Rating & Quick Info -->
+<div class="flex items-center flex-wrap gap-3 mb-4">
+<div class="flex items-center text-on-surface">
+<span class="material-symbols-outlined text-primary text-base mr-1 fill-icon" data-icon="star">star</span>
+<span class="font-label-bold text-sm">4.5</span>
+<span class="font-body-md text-xs text-secondary ml-1">(1.2k votes)</span>
+</div>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="font-label-bold text-sm text-on-surface">₹₹₹</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<div class="flex items-center border border-[#4CAF50] rounded px-1.5 py-0.5">
+<div class="w-2 h-2 rounded-full bg-[#4CAF50] mr-1"></div>
+<span class="font-label-bold text-[10px] text-[#2E7D32] uppercase">Veg Options</span>
+</div>
+</div>
+<!-- Tags -->
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="px-2.5 py-1 bg-surface-container rounded-md font-body-md text-xs text-on-surface-variant">Continental</span>
+<span class="px-2.5 py-1 bg-surface-container rounded-md font-body-md text-xs text-on-surface-variant">Mediterranean</span>
+<span class="px-2.5 py-1 bg-surface-container rounded-md font-body-md text-xs text-on-surface-variant">Live Music</span>
+</div>
+<!-- AI Reason Block -->
+<div class="mt-auto bg-surface-container-low border border-primary-fixed rounded-lg p-3 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-primary-fixed-dim to-transparent opacity-20 rounded-bl-full"></div>
+<div class="flex items-start gap-2 relative z-10">
+<span class="material-symbols-outlined text-primary text-sm mt-0.5" data-icon="temp_preferences_custom">temp_preferences_custom</span>
+<p class="font-body-md text-sm text-on-surface-variant italic leading-snug">"Perfect for anniversaries with its intimate rooftop setting and curated wine list."</p>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="bg-surface-container-lowest rounded-[24px] overflow-hidden shadow-sm border border-outline-variant card-hover transition-all duration-300 flex flex-col h-full relative">
+<div class="absolute top-4 left-4 z-10 bg-surface-container-highest text-on-surface px-3 py-1 rounded-full font-label-bold text-sm shadow-md flex items-center">
+                        #2 Match
+                    </div>
+<div class="relative h-56 w-full bg-surface-container">
+<img alt="Restaurant exterior" class="w-full h-full object-cover" data-alt="A detailed, vibrant architectural photograph of a chic, multi-level rooftop restaurant setting at dusk. The lighting is moody and sophisticated, featuring low-level ambient floor lights and glowing paper lanterns suspended above. Stylish, modern minimalist furniture is arranged with generous spacing. Patrons are visible in the background, out of focus, enjoying cocktails. The overall aesthetic feels premium, trendy, and relaxing." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIFHzP5ImJiTiAMoeOQFfxwY4y34mQx7HfuGcBnhqgJXlpzN3CZeq-V2THbtMnWvZGjRmMkkPGDlSCk4oqFK9Ox_HjZlLNw5vy_GgoB6NnPaCzslRmBbMX7PNqQxujg1Ikxkj64351v5Kk7fryEjqanjajhShFpjsv_zd9atOkxy8Ly6JW7kzgHNspKK6MPUHc0uPcbZ8VI7euUv789l6x-76GCdtqC2wsM1tGQHi7ssX2cZePhD8YOA3jbanZe2fpMmM2zGfvdJI"/>
+<div class="absolute -bottom-6 right-6 z-10">
+<div class="w-14 h-14 rounded-full bg-surface flex items-center justify-center shadow-lg border-4 border-surface relative">
+<svg class="absolute inset-0 w-full h-full transform -rotate-90" viewbox="0 0 36 36">
+<path class="text-surface-container-high" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3"></path>
+<path class="text-[#8B5CF6]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="88, 100" stroke-width="3"></path>
+</svg>
+<span class="font-headline-md text-sm font-bold text-on-surface relative z-10">88%</span>
+</div>
+</div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<div class="mb-2 pr-12">
+<h2 class="font-headline-md text-headline-md text-on-surface line-clamp-1">Toit Brewpub</h2>
+<p class="font-body-md text-sm text-secondary">Indiranagar, Bengaluru</p>
+</div>
+<div class="flex items-center flex-wrap gap-3 mb-4">
+<div class="flex items-center text-on-surface">
+<span class="material-symbols-outlined text-primary text-base mr-1 fill-icon" data-icon="star">star</span>
+<span class="font-label-bold text-sm">4.7</span>
+<span class="font-body-md text-xs text-secondary ml-1">(5.4k votes)</span>
+</div>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="font-label-bold text-sm text-on-surface">₹₹</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<div class="flex items-center border border-[#4CAF50] rounded px-1.5 py-0.5">
+<div class="w-2 h-2 rounded-full bg-[#4CAF50] mr-1"></div>
+<span class="font-label-bold text-[10px] text-[#2E7D32] uppercase">Veg Options</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="px-2.5 py-1 bg-surface-container rounded-md font-body-md text-xs text-on-surface-variant">Brewery</span>
+<span class="px-2.5 py-1 bg-surface-container rounded-md font-body-md text-xs text-on-surface-variant">Italian</span>
+<span class="px-2.5 py-1 bg-surface-container rounded-md font-body-md text-xs text-on-surface-variant">Vibrant</span>
+</div>
+<div class="mt-auto bg-surface-container-low border border-transparent rounded-lg p-3 relative overflow-hidden">
+<div class="flex items-start gap-2 relative z-10">
+<span class="material-symbols-outlined text-secondary text-sm mt-0.5" data-icon="tips_and_updates">tips_and_updates</span>
+<p class="font-body-md text-sm text-on-surface-variant italic leading-snug">"Livelier atmosphere, great craft beers, but slightly less intimate than Fenny's."</p>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 3 -->
+<article class="bg-surface-container-lowest rounded-[24px] overflow-hidden shadow-sm border border-outline-variant card-hover transition-all duration-300 flex flex-col h-full relative">
+<div class="absolute top-4 left-4 z-10 bg-surface-container-highest text-on-surface px-3 py-1 rounded-full font-label-bold text-sm shadow-md flex items-center">
+                        #3 Match
+                    </div>
+<div class="relative h-56 w-full bg-surface-container">
+<img alt="Restaurant interior" class="w-full h-full object-cover" data-alt="A pristine, wide-angle lifestyle shot of an elegant rooftop pan-Asian dining lounge. Lush tropical greenery frames the seating areas, contrasting beautifully with sleek, dark wood furnishings. Soft, diffuse light from spherical hanging lamps casts a warm glow over a beautifully prepared sushi platter on a corner table. The visual style is clean, upscale, and serene, evoking a sense of calm sophistication." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIHl5G-k5n_wUs-w2UG67mp5bZwatau8TudGb7_vqT6y097tVQcuV5wP5YKSUEL4LVEVBzzjmP1-SJes6-CRntsWI4isjKMm_9q91oS-taQXG5a9ZzBSHRt4KUgbj9lFMf9RyL-QK6bpN7CihCyXFirKJQ85CdF_jGyX-BAOAY41COQv19p4DzE0MWzJVufAErsrga_i-Bd3Iy0GTP_VgBQqYURiPOx-9_UWUftBY5Mi9xt7p3YHZChPt_mTa7f_0Zgr2fb5enbjE"/>
+<div class="absolute -bottom-6 right-6 z-10">
+<div class="w-14 h-14 rounded-full bg-surface flex items-center justify-center shadow-lg border-4 border-surface relative">
+<svg class="absolute inset-0 w-full h-full transform -rotate-90" viewbox="0 0 36 36">
+<path class="text-surface-container-high" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3"></path>
+<path class="text-[#8B5CF6]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="82, 100" stroke-width="3"></path>
+</svg>
+<span class="font-headline-md text-sm font-bold text-on-surface relative z-10">82%</span>
+</div>
+</div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<div class="mb-2 pr-12">
+<h2 class="font-headline-md text-headline-md text-on-surface line-clamp-1">Mirage</h2>
+<p class="font-body-md text-sm text-secondary">Indiranagar, Bengaluru</p>
+</div>
+<div class="flex items-center flex-wrap gap-3 mb-4">
+<div class="flex items-center text-on-surface">
+<span class="material-symbols-outlined text-primary text-base mr-1 fill-icon" data-icon="star">star</span>
+<span class="font-label-bold text-sm">4.3</span>
+<span class="font-body-md text-xs text-secondary ml-1">(850 votes)</span>
+</div>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="font-label-bold text-sm text-on-surface">₹₹₹₹</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<div class="flex items-center border border-[#4CAF50] rounded px-1.5 py-0.5">
+<div class="w-2 h-2 rounded-full bg-[#4CAF50] mr-1"></div>
+<span class="font-label-bold text-[10px] text-[#2E7D32] uppercase">Veg Options</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="px-2.5 py-1 bg-surface-container rounded-md font-body-md text-xs text-on-surface-variant">Pan Asian</span>
+<span class="px-2.5 py-1 bg-surface-container rounded-md font-body-md text-xs text-on-surface-variant">Lounge</span>
+<span class="px-2.5 py-1 bg-surface-container rounded-md font-body-md text-xs text-on-surface-variant">Upscale</span>
+</div>
+<div class="mt-auto bg-surface-container-low border border-transparent rounded-lg p-3 relative overflow-hidden">
+<div class="flex items-start gap-2 relative z-10">
+<span class="material-symbols-outlined text-secondary text-sm mt-0.5" data-icon="tips_and_updates">tips_and_updates</span>
+<p class="font-body-md text-sm text-on-surface-variant italic leading-snug">"Exceptional ambiance and views, though significantly higher price point."</p>
+</div>
+</div>
+</div>
+</article>
+</div>
+<div class="mt-stack-lg flex justify-center">
+<button class="bg-surface-container border border-outline-variant px-6 py-3 rounded-xl font-label-bold text-on-surface hover:bg-surface-container-highest transition-colors flex items-center">
+                    Load More Matches
+                    <span class="material-symbols-outlined ml-2 text-sm" data-icon="expand_more">expand_more</span>
+</button>
+</div>
+</main>
+</div>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-on-background border-t border-outline-variant dark:border-outline full-width py-base mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop w-full max-w-container-max mx-auto gap-4">
+<div class="flex items-center gap-4">
+<span class="font-headline-lg text-headline-lg text-primary tracking-tight">GourmetAI</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant hidden md:block"></span>
+<p class="font-label-bold text-label-bold text-secondary dark:text-secondary-fixed-dim">
+                    © 2024 GourmetAI • 12 candidates evaluated in 420ms
+                </p>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center bg-surface-container-high px-2.5 py-1 rounded text-xs font-label-bold text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px] mr-1" data-icon="memory">memory</span>
+                    AI-Ranked
+                </div>
+<nav class="flex gap-4">
+<a class="font-label-bold text-label-bold text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">Privacy</a>
+<a class="font-label-bold text-label-bold text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">Terms</a>
+<a class="font-label-bold text-label-bold text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">API Status</a>
+</nav>
+</div>
+</div>
+</footer>
+</body></html>
